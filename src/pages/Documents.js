@@ -45,7 +45,7 @@ const DocumentsPage = () => {
 
       <div className="document-section">
         <h2>bwd</h2>
-        <p>Description or content related to BWD.</p>
+        <p>Here are some important documents from BWD</p>
         <div className="document-card">
           <div className="document-item">
             <h3>Resume</h3>
@@ -61,13 +61,13 @@ const DocumentsPage = () => {
             </div>
           </div>
           <div className="document-item">
-            <h3>Cover Letter</h3>
-            <p>A cover letter for job applications.</p>
+            <h3>BWD Grades</h3>
+            <p>My grades from semster 1-6</p>
             <div className="button-group">
               <a href="./ryan_lebenslauf.pdf" className="btn-download" download>Download</a>
               <button 
                 className="btn-preview" 
-                onClick={() => handlePreview('./ryan_lebenslauf.pdf')}
+                onClick={() => handlePreview('./ryan_NotenBWD.pdf')}
               >
                 Preview
               </button>
@@ -78,11 +78,11 @@ const DocumentsPage = () => {
 
       <div className="document-section">
         <h2>gibb</h2>
-        <p>Description or content related to GIBB.</p>
+        <p>Here are some important documents from gibb</p>
         <div className="document-card">
           <div className="document-item">
-            <h3>GIBB Document 1</h3>
-            <p>Description or content related to GIBB Document 1.</p>
+            <h3>GIBB Grades</h3>
+            <p>My grade from semster 1-6</p>
             <div className="button-group">
               <a href="./gibb_doc1.pdf" className="btn-download" download>Download</a>
               <button 
@@ -94,8 +94,8 @@ const DocumentsPage = () => {
             </div>
           </div>
           <div className="document-item">
-            <h3>GIBB Document 2</h3>
-            <p>Description or content related to GIBB Document 2.</p>
+            <h3>GIBB Documents</h3>
+            <p>Other important documents</p>
             <div className="button-group">
               <a href="./gibb_doc2.pdf" className="btn-download" download>Download</a>
               <button 
@@ -117,10 +117,10 @@ const DocumentsPage = () => {
             <h3>ÜK 1</h3>
             <p>Description or content related to ÜK 1.</p>
             <div className="button-group">
-              <a href="./uek1.pdf" className="btn-download" download>Download</a>
+              <a href="./KNW187_bwd.pdf" className="btn-download" download>Download</a>
               <button 
                 className="btn-preview" 
-                onClick={() => handlePreview('./uek1.pdf')}
+                onClick={() => handlePreview('./KNW187_bwd.pdf')}
               >
                 Preview
               </button>
@@ -130,10 +130,10 @@ const DocumentsPage = () => {
             <h3>ÜK 2</h3>
             <p>Description or content related to ÜK 2.</p>
             <div className="button-group">
-              <a href="./uek2.pdf" className="btn-download" download>Download</a>
+              <a href="./KNW210_bwd.pdf" className="btn-download" download>Download</a>
               <button 
                 className="btn-preview" 
-                onClick={() => handlePreview('./uek2.pdf')}
+                onClick={() => handlePreview('./KNW210_bwd.pdf')}
               >
                 Preview
               </button>
@@ -143,10 +143,10 @@ const DocumentsPage = () => {
             <h3>ÜK 3</h3>
             <p>Description or content related to ÜK 3.</p>
             <div className="button-group">
-              <a href="./uek3.pdf" className="btn-download" download>Download</a>
+              <a href="./KNW106_bwd.pdf" className="btn-download" download>Download</a>
               <button 
                 className="btn-preview" 
-                onClick={() => handlePreview('./uek3.pdf')}
+                onClick={() => handlePreview('./KNW106_bwd.pdf')}
               >
                 Preview
               </button>
@@ -156,10 +156,10 @@ const DocumentsPage = () => {
             <h3>ÜK 4</h3>
             <p>Description or content related to ÜK 4.</p>
             <div className="button-group">
-              <a href="./uek4.pdf" className="btn-download" download>Download</a>
+              <a href="./KNW294_bwd.pdf" className="btn-download" download>Download</a>
               <button 
                 className="btn-preview" 
-                onClick={() => handlePreview('./uek4.pdf')}
+                onClick={() => handlePreview('./KNW294_bwd.pdf')}
               >
                 Preview
               </button>
@@ -169,10 +169,10 @@ const DocumentsPage = () => {
             <h3>ÜK 5</h3>
             <p>Description or content related to ÜK 5.</p>
             <div className="button-group">
-              <a href="./uek5.pdf" className="btn-download" download>Download</a>
+              <a href="./KNW295_bwd.pdf" className="btn-download" download>Download</a>
               <button 
                 className="btn-preview" 
-                onClick={() => handlePreview('./uek5.pdf')}
+                onClick={() => handlePreview('./KNW295_bwd.pdf')}
               >
                 Preview
               </button>
@@ -182,10 +182,10 @@ const DocumentsPage = () => {
             <h3>ÜK 6</h3>
             <p>Description or content related to ÜK 6.</p>
             <div className="button-group">
-              <a href="./uek6.pdf" className="btn-download" download>Download</a>
+              <a href="./KNW335_bwd.pdf" className="btn-download" download>Download</a>
               <button 
                 className="btn-preview" 
-                onClick={() => handlePreview('./uek6.pdf')}
+                onClick={() => handlePreview('./KNW335_bwd.pdf')}
               >
                 Preview
               </button>

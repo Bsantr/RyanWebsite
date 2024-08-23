@@ -320,10 +320,11 @@
 }
 
 @media (max-width: 480px) {
+
   .work-intro-box {
-    max-width: 100%;
-    padding: 15px;
-  }
+    max-width: 80%; /* Reduziere die maximale Breite */
+    padding: 20px; /* Verringere das Padding */
+      }
 
   .work-intro {
     font-size: 0.95rem;

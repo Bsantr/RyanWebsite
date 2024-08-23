@@ -77,10 +77,9 @@ const ProjectLayout = ({ children }) => {
     </div>
   );
 };
-
+// jhdjkwhfdsw
 const App = () => {
   const location = useLocation();
-
   return (
     <div>
       <Routes>
@@ -91,8 +90,8 @@ const App = () => {
         <Route path="/learningapp" element={<ProjectLayout><LearningApp /></ProjectLayout>} />
         <Route path="/todoapp" element={<ProjectLayout><TodoApp /></ProjectLayout>} />
         <Route path="/shootergame" element={<ProjectLayout><ShooterGame /></ProjectLayout>} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/documents" element={<Documents />} /> {/* Added Documents route */}
+        <Route path="/login" element={<ProjectLayout><LoginPage /></ProjectLayout>} />
+        <Route path="/documents" element={<ProjectLayout><Documents /></ProjectLayout>} /> {/* Added Documents route */}
       </Routes>
       {/* Footer only visible if the path is not '/login' and not '/documents' */}
       {location.pathname !== '/login' && location.pathname !== '/documents' && <Footer />}

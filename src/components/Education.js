@@ -15,9 +15,9 @@ const Education = () => {
         <div className="timeline-item left">
           <div className="education-card" style={{ backgroundImage: `url(${BwdImage})` }}>
             <div className="overlay">
-              <h3>Informatics Middle School IMS</h3>
+              <h3>BWD IMS</h3>
               <p>08/2022 - Present</p>
-              <p>Vocational Baccalaureate, Bern</p>
+              <p>Wankdorf, Bern</p>
               <a href="https://www.bwdbern.ch" target="_blank" rel="noopener noreferrer" className="info-button">Info</a>
             </div>
           </div>
@@ -25,9 +25,9 @@ const Education = () => {
         <div className="timeline-item right">
           <div className="education-card" style={{ backgroundImage: `url(${NmsImage})` }}>
             <div className="overlay">
-              <h3>IT Specialist EFZ</h3>
-              <p>08/2022 - Present</p>
-              <p>Application Development gibb & bbc, Bern</p>
+              <h3>NMS Bern</h3>
+              <p> 08/2020 - 07/2022 </p>
+              <p>Waisenhausplatz, Bern</p>
               <a href="https://www.nmsbern.ch/" target="_blank" rel="noopener noreferrer" className="info-button">Info</a>
             </div>
           </div>
@@ -35,9 +35,9 @@ const Education = () => {
         <div className="timeline-item left">
           <div className="education-card" style={{ backgroundImage: `url(${ManuelImage})` }}>
             <div className="overlay">
-              <h3>Secondary Level I</h3>
-              <p>08/2019 - 07/2022</p>
-              <p>Bodenacker Schoolhouse, Münchenbuchsee</p>
+              <h3>Secondary school Manuel</h3>
+              <p>08/2019 - 07/2020</p>
+              <p>Mülinenstrasse, Bern</p>
               <a href="https://kirchenfeld-schosshalde.ch/manuel" target="_blank" rel="noopener noreferrer" className="info-button">Info</a>
             </div>
           </div>
@@ -45,9 +45,9 @@ const Education = () => {
         <div className="timeline-item right">
           <div className="education-card" style={{ backgroundImage: `url(${KirchenfeldImage})` }}>
             <div className="overlay">
-              <h3>Primary School</h3>
-              <p>08/2014 - 07/2019</p>
-              <p>Waldegg Schoolhouse, Münchenbuchsee</p>
+              <h3>Primary Kirchenfeld </h3>
+              <p>08/2012 - 07/2018</p>
+              <p>Aegertenstrasse, Bern </p>
               <a href="https://kirchenfeld-schosshalde.ch/kirchenfeld" target="_blank" rel="noopener noreferrer" className="info-button">Info</a>
             </div>
           </div>
