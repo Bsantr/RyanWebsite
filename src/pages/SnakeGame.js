@@ -1,8 +1,8 @@
 import React from 'react';
 import '../styles/SnakeGame.css';
-import snakeAbstract from '../assets/faceAbstract.jpg';
-import snakeDetail1 from '../assets/faceDetail1.jpg';
-import snakeDetail2 from '../assets/faceDetail2.jpg';
+import snakeAbstract from '../assets/faceAbstract.png';
+import snakeDetail1 from '../assets/FaceDetail1.png';
+import snakeDetail2 from '../assets/FaceDetail1.png';
 import downloadIcon from '../assets/download.png';
 import githubIcon from '../assets/github.png';
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import '../styles/CalendarApp.css';
-import calendarAbstract from '../assets/faceAbstract.jpg';
-import calendarDetail1 from '../assets/faceDetail1.jpg';
-import calendarDetail2 from '../assets/faceDetail2.jpg';
+import calendarAbstract from '../assets/faceAbstract.png';
+import calendarDetail1 from '../assets/FaceDetail1.png';
+import calendarDetail2 from '../assets/FaceDetail1.png';
 import downloadIcon from '../assets/download.png';
 import githubIcon from '../assets/github.png';
 

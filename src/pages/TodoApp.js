@@ -1,8 +1,8 @@
 import React from 'react';
 import '../styles/TodoApp.css';
-import todoAbstract from '../assets/faceAbstract.jpg';
-import todoDetail1 from '../assets/faceDetail1.jpg';
-import todoDetail2 from '../assets/faceDetail2.jpg';
+import todoAbstract from '../assets/faceAbstract.png';
+import todoDetail1 from '../assets/FaceDetail1.png'
+import todoDetail2 from '../assets/FaceDetail1.png';
 import downloadIcon from '../assets/download.png';
 import githubIcon from '../assets/github.png';
 

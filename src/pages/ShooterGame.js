@@ -1,8 +1,8 @@
 import React from 'react';
 import '../styles/ShooterGame.css';
-import shooterAbstract from '../assets/faceAbstract.jpg';
-import shooterDetail1 from '../assets/faceDetail1.jpg';
-import shooterDetail2 from '../assets/faceDetail2.jpg';
+import shooterAbstract from '../assets/faceAbstract.png';
+import shooterDetail1 from '../assets/FaceDetail1.png';
+import shooterDetail2 from '../assets/FaceDetail1.png';
 import downloadIcon from '../assets/download.png';
 import githubIcon from '../assets/github.png';
 

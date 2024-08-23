@@ -16,156 +16,200 @@
   z-index: 0;
 }
 
-.Education h2 {
-  color: #283044;
-  font-size: 2.5em;
-  margin-bottom: 40px;
+.education-header {
   text-align: center;
-  text-decoration: underline;
-  text-decoration-color: #61dafb;
-  text-decoration-thickness: 3px;
+  margin-bottom: 40px;
   position: relative;
   z-index: 1;
 }
 
-.education-intro-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 30px;
-  border: 3px solid #283044;
-  border-radius: 15px;
-  background: linear-gradient(135deg, #ebf5ee 0%, #c2d3d9 100%);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  max-width: 800px;
-  margin: 0 auto 30px auto;
-  transition: background 0.6s ease, box-shadow 0.6s ease;
+.education-header h2 {
+  font-size: 2.5em;
+  color: #283044;
+  text-decoration: underline;
+  text-decoration-color: #61dafb;
+  text-decoration-thickness: 3px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
 }
 
-.education-intro-box:hover {
-  background: linear-gradient(135deg, #c2d3d9 0%, #ebf5ee 100%);
+.timeline {
+  position: relative;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  max-width: 1300px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(to bottom, #61dafb, #3b83bd, #2c6791, #1e4a65);
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.timeline-item {
+  position: relative;
+  margin: 30px 0; /* Slightly reduced vertical space between items */
+  width: 50%; /* Adjusted width to ensure content doesn't overlap the line */
+  padding-left: 20px; /* Padding adjusted for balance */
+  padding-right: 20px; /* Padding adjusted for balance */
+}
+
+.timeline-item.left {
+  left: -5%; /* Ensures content stays to the left of the line with a gap */
+}
+
+.timeline-item.right {
+  left: 55%; /* Ensures content stays to the right of the line with a gap */
+}
+
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  top: -10px; /* Move the circle slightly above the content */
+  left: 50%;
+  width: 30px; /* Increased width for larger circle */
+  height: 30px; /* Increased height for larger circle */
+  background-color: #283044; /* Inner circle color */
+  border: 6px solid #ffffff; /* Increased border size */
+  border-radius: 50%;
+  transform: translate(-50%, 0); /* Center the circle horizontally */
+  z-index: 3;
+}
+
+.education-card {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+  overflow: hidden;
+  height: 350px; /* Slightly reduced height for a slimmer profile */
+  border: 3px solid #283044;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 2;
+}
+
+.education-card:hover {
+  transform: translateY(-10px);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 }
 
-.education-intro {
-  margin: 0 auto;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #283044;
-  line-height: 1.6;
-  font-family: 'Courier New', Courier, monospace;
-  text-align: center;
-}
-
-.education-container {
-  display: flex;
-  align-items: flex-start;
-  position: relative;
-}
-
-.path-line {
-  width: 5px;
-  background: linear-gradient(to bottom, #005f73, #0a9396, #005f73);
+.overlay {
   position: absolute;
-  left: 0;
   top: 0;
-  bottom: 0;
-  border-radius: 5px;
-}
-
-.education-items {
-  margin-left: 20px;
-  width: calc(100% - 20px);
-}
-
-.education-item {
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Dark overlay covering the entire image */
+  color: #ffffff;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-  padding: 20px;
-  background-color: #ebf5ee;
-  border: 2px solid #283044;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  position: relative;
-  width: 100%;
-  box-sizing: border-box;
   text-align: center;
+  padding: 20px;
 }
 
-.education-image {
-  flex: 0 0 25%;
-  height: auto;
-  max-height: 150px;
-  width: 100%;
-  border-radius: 10px;
-  margin-right: 20px;
-  object-fit: cover;
-  border: none;
+.overlay h3 {
+  font-size: 2.2em;
+  margin-bottom: 15px;
+  font-weight: 700;
 }
 
-.education-text {
-  flex: 1 1 50%;
-  margin: 0 20px;
-}
-
-.education-item h3 {
-  font-size: 1.5em;
-  margin-bottom: 10px;
-  color: #283044;
-}
-
-.education-item p {
-  font-size: 1em;
-  color: #283044;
+.overlay p {
+  font-size: 1.3em;
   line-height: 1.6;
+  margin: 0;
 }
 
-.visit-button-container {
-  flex: 0 0 25%;
-  display: flex;
-  justify-content: center;
-}
-
-.visit-button {
-  display: inline-block;
-  padding: 15px 30px;
-  font-size: 1.2em;
-  background-color: #78a1bb;
+.info-button {
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: #61dafb;
   color: #283044;
   text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.3s;
+  border-radius: 25px;
+  font-size: 1.2em;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.visit-button:hover {
-  background-color: #79bec7;
+.info-button:hover {
+  background-color: #3b83bd;
+  transform: translateY(-3px);
 }
+
+/* Media query adjustments, if any */
 
 @media (max-width: 768px) {
-  .education-item {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  .Education {
+    padding: 50px 5%;
   }
 
-  .education-image {
+  .timeline-item {
     width: 100%;
-    max-width: 300px;
-    height: auto;
-    margin-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
-  .visit-button-container {
-    margin-top: 10px;
+  .timeline-item.right {
+    left: 0;
+  }
+  .timeline-item.left {
+    left: 0;
+  }
+
+
+  .timeline-item::before {
+    display: none;
+  }
+
+  .timeline-item::after {
+    top: -15px; /* Adjust top position for small screens */
+    left: 50%;
+    width: 20px; /* Smaller circle on small screens */
+    height: 20px;
+    border: 4px solid #ffffff;
+    transform: translate(-50%, 0);
+    z-index: 3;
+  }
+
+  .education-card {
+    height: 250px; /* Further reduced height on smaller screens */
+  }
+
+  .overlay {
+    top: 0; /* Keep the dark overlay covering the entire image */
+    left: 0;
     width: 100%;
-    display: flex;
-    justify-content: center;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
   }
 
-  .visit-button {
-    width: auto;
-    text-align: center;
+  .overlay h3 {
+    font-size: 2em;
+  }
+
+  .overlay p {
+    font-size: 1.2em;
+  }
+
+  .info-button {
+    font-size: 1.1em;
+    padding: 10px 20px;
+  }
+
+  .education-header h2 {
+    font-size: 2rem;
   }
 }

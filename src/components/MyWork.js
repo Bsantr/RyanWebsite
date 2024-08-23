@@ -18,14 +18,13 @@ const projects = [
 ];
 
 const MyWork = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [showAll, setShowAll] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0); // Start Index bei 0 für das Karussell
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768); // Zustand für die Bildschirmgröße
   const navigate = useNavigate();
   const carouselRef = useRef(null);
 
-  const visibleItems = 3; // Number of visible items at a time
-  const itemWidth = 300; // Width of each item including margin
-  const itemMargin = 20; // Margin between items
+  const itemWidth = 300; // Breite jedes Elements (inkl. Margin)
+  const itemMargin = 20; // Margin zwischen den Elementen
   const itemsCount = projects.length;
 
   const handleNext = () => {
@@ -40,39 +39,46 @@ const MyWork = () => {
     navigate(path);
   };
 
-  const handleShowAll = () => {
-    setShowAll(!showAll);
-  };
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Initial check
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
-    if (carouselRef.current) {
-      const offset = (currentIndex * (itemWidth + itemMargin)) - (itemWidth + itemMargin) * Math.floor(visibleItems / 2);
+    if (carouselRef.current && !isMobile) {
+      const offset = currentIndex * (itemWidth + itemMargin);
       carouselRef.current.style.transform = `translateX(-${offset}px)`;
     }
-  }, [currentIndex]);
+  }, [currentIndex, isMobile]);
+
+  // Dupliziere die Projekte-Liste für das Endlos-Scrollen
+  const extendedProjects = [...projects, ...projects, ...projects];
 
   return (
     <section id="mywork" className="WorkSection">
       <h2>My Work</h2>
-      <button className="show-all-button" onClick={handleShowAll}>
-        {showAll ? 'Show Carousel' : 'Show All'}
-      </button>
       <div className="work-intro-box">
         <p className="work-intro">
           This is a collection of some of my most recent projects that highlight my skills and creativity.
           It ranges from a facial recognition system to practical tools like a learning app.
         </p>
       </div>
-      {!showAll && (
+      {!isMobile && (
         <div className="work-carousel">
           <button className="carousel-button left" onClick={handlePrev}>
             &larr;
           </button>
           <div className="work-carousel-inner" ref={carouselRef}>
-            {projects.map((project, index) => (
+            {extendedProjects.map((project, index) => (
               <div
                 key={index}
-                className={`work-item ${index === currentIndex ? 'active' : ''}`}
+                className="work-item"
                 onClick={() => handleCardClick(project.path)}
               >
                 <img src={project.image} alt={project.title} />
@@ -88,7 +94,7 @@ const MyWork = () => {
           </button>
         </div>
       )}
-      {showAll && (
+      {isMobile && (
         <div className="show-all">
           {projects.map((project, index) => (
             <div

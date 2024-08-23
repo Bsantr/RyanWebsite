@@ -1,8 +1,8 @@
 import React from 'react';
 import '../styles/LearningApp.css';
-import learningAbstract from '../assets/faceAbstract.jpg';
-import learningDetail1 from '../assets/faceDetail1.jpg';
-import learningDetail2 from '../assets/faceDetail2.jpg';
+import learningAbstract from '../assets/faceAbstract.png';
+import learningDetail1 from '../assets/FaceDetail1.png';
+import learningDetail2 from '../assets/FaceDetail1.png';
 import downloadIcon from '../assets/download.png';
 import githubIcon from '../assets/github.png';
 

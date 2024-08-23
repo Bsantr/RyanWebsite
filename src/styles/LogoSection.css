@@ -1,5 +1,6 @@
 .LogoSection {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -19,53 +20,55 @@
 .left-content,
 .center-content,
 .tweet-card-container {
-  flex: 1; /* Gleiche Flex-Basis für alle drei Abschnitte */
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .left-content {
-  justify-content: flex-start; /* Bild linksbündig */
+  justify-content: flex-start;
 }
 
 .center-content {
-  justify-content: center; /* Text zentriert */
+  justify-content: center;
+  text-align: left;
+  flex-direction: column; /* Stack elements vertically in center-content */
 }
 
 .tweet-card-container {
-  justify-content: flex-end; /* Tweet rechtsbündig */
+  justify-content: flex-end;
+  max-width: 300px;
+  transform: scale(0.75);
+  transform-origin: top right;
+  margin-left: 20px;
+  margin-top: 100px;
 }
 
 .banner-container {
-  max-width: 300px;
-  width: 100%;
+  max-width: 100%;
+  width: auto;
+  border: none;
 }
 
 .banner-image {
   width: 100%;
   height: auto;
-  border-radius: 15px;
-  border: 4px solid #283044;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease-in-out;
+  border-radius: 0;
+  box-shadow: none;
   object-fit: cover;
 }
 
-.banner-image:hover {
-  transform: scale(1.05);
-}
-
 .logo-text-card {
-  max-width: 600px;
-  padding: 20px;
+  max-width: 800px;
+  padding: 30px;
   border: 3px solid #283044;
   border-radius: 15px;
   background: linear-gradient(135deg, #ebf5ee 0%, #c2d3d9 100%);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   transition: background 0.6s ease, box-shadow 0.6s ease;
   font-family: 'Courier New', Courier, monospace;
-  text-align: center; /* Text zentrieren */
+  text-align: center;
 }
 
 .logo-text-card:hover {
@@ -73,32 +76,69 @@
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 }
 
-.logo-title {
+.typing-animation {
+  display: inline-block;
+  font-family: 'Courier New', Courier, monospace;
+  white-space: normal;
+  overflow: hidden;
   font-size: 2.5rem;
-  color: #283044;
-  margin-bottom: 15px;
   font-weight: bold;
-  font-family: 'Courier New', Courier, monospace;
-}
-
-.logo-text {
-  font-size: 1.2rem;
-  line-height: 1.6;
   color: #283044;
-  margin: 0;
-  font-family: 'Courier New', Courier, monospace;
 }
 
-.logo-text strong {
+.profession-text {
+  font-size: 1.2rem; /* Smaller font size for the profession */
+  color: #283044;
+  margin-top: 10px;
+}
+
+.more-button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  border: 2px solid #283044;
+  border-radius: 30px;
+  background-color: #283044;
+  color: white;
+  font-size: 1rem;
   font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.tweet-card-container {
-  max-width: 350px; /* Etwas größere Maximalbreite für den Tweet */
-  transform: scale(0.9); /* Leicht vergrößerte Skalierung */
-  transform-origin: top right; /* Skalierung bleibt von der oberen rechten Ecke aus */
-  margin-left: 20px;
-  margin-top: 100px; /* Abstand vom oberen Rand (Nav) erhöhen */
+.more-button:hover {
+  background-color: white;
+  color: #283044;
+}
+
+.centered-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 200px; /* Adjust as needed */
+}
+
+.icon-group {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px; /* Space between the card and the icons */
+}
+
+.icon-button {
+  margin: 0 25px; /* Larger space between icons */
+  color: #283044;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.icon-button:hover {
+  color: #555;
+}
+
+.icon-button svg {
+  width: 60px;
+  height: 60px;
 }
 
 @media (max-width: 768px) {
@@ -114,12 +154,11 @@
     max-width: 100%;
   }
 
-
   .tweet-card-container {
     margin-left: 0;
     margin-top: 20px;
     max-width: 100%;
-    transform: scale(1); /* Normale Skalierung auf kleinen Bildschirmen */
+    transform: scale(0.85);
   }
 
   .banner-container {
@@ -128,5 +167,15 @@
 
   .logo-text-card {
     text-align: center;
+    max-width: 100%;
+  }
+
+  .icon-group {
+    margin-top: 30px; /* Adjust space for smaller screens */
+  }
+
+  .icon-button svg {
+    width: 50px; /* Slightly smaller icons for smaller screens */
+    height: 50px;
   }
 }

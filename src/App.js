@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import Header from './components/Header';
 import LogoSection from './components/LogoSection';
 import AboutMe from './components/AboutMe';
@@ -13,6 +13,7 @@ import LearningApp from './pages/LearningApp';
 import TodoApp from './pages/TodoApp';
 import ShooterGame from './pages/ShooterGame';
 import LoginPage from './pages/LoginPage';
+import Documents from './pages/Documents'; // Assuming this is your Documents page
 import Footer from './components/Footer'; 
 import './styles/App.css';
 
@@ -78,22 +79,24 @@ const ProjectLayout = ({ children }) => {
 };
 
 const App = () => {
+  const location = useLocation();
+
   return (
-    <Router>
-      <div>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/faceid" element={<ProjectLayout><FaceID /></ProjectLayout>} />
-          <Route path="/calendarapp" element={<ProjectLayout><CalendarApp /></ProjectLayout>} />
-          <Route path="/snakegame" element={<ProjectLayout><SnakeGame /></ProjectLayout>} />
-          <Route path="/learningapp" element={<ProjectLayout><LearningApp /></ProjectLayout>} />
-          <Route path="/todoapp" element={<ProjectLayout><TodoApp /></ProjectLayout>} />
-          <Route path="/shootergame" element={<ProjectLayout><ShooterGame /></ProjectLayout>} />
-          <Route path="/login" element={<LoginPage />} />
-        </Routes>
-      </div>
-      <Footer />
-    </Router>
+    <div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/faceid" element={<ProjectLayout><FaceID /></ProjectLayout>} />
+        <Route path="/calendarapp" element={<ProjectLayout><CalendarApp /></ProjectLayout>} />
+        <Route path="/snakegame" element={<ProjectLayout><SnakeGame /></ProjectLayout>} />
+        <Route path="/learningapp" element={<ProjectLayout><LearningApp /></ProjectLayout>} />
+        <Route path="/todoapp" element={<ProjectLayout><TodoApp /></ProjectLayout>} />
+        <Route path="/shootergame" element={<ProjectLayout><ShooterGame /></ProjectLayout>} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/documents" element={<Documents />} /> {/* Added Documents route */}
+      </Routes>
+      {/* Footer only visible if the path is not '/login' and not '/documents' */}
+      {location.pathname !== '/login' && location.pathname !== '/documents' && <Footer />}
+    </div>
   );
 };
 

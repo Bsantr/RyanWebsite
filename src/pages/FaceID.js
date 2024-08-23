@@ -1,8 +1,8 @@
 import React from 'react';
 import '../styles/FaceID.css';
-import faceAbstract from '../assets/faceAbstract.jpg';
-import faceDetail1 from '../assets/faceDetail1.jpg';
-import faceDetail2 from '../assets/faceDetail2.jpg';
+import faceAbstract from '../assets/faceAbstract.png';
+import faceDetail1 from '../assets/FaceDetail1.png';
+import faceDetail2 from '../assets/faceDetail2.png';
 import downloadIcon from '../assets/download.png';
 import githubIcon from '../assets/github.png';
 

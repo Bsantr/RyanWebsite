@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/Header.css';
-import LogoImage from '../assets/LogoImage.png';
+import LogoImage from '../assets/LogoImage.png'; // Passe den Pfad zum Logo-Bild an
+
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -16,7 +17,11 @@ const Header = () => {
   return (
     <header>
       <nav>
-        <div className="logo">
+        <div
+          className="logo"
+          onClick={() => handleScrollToSection('aboutme')}
+          style={{ cursor: 'pointer' }} // Hinzugefügt: Wechselt den Cursor zu einem Zeiger
+        >
           <img src={LogoImage} alt="Logo" /> {/* Pfad zum Bild anpassen */}
         </div>
         <div className="burger-menu" onClick={toggleMenu}>

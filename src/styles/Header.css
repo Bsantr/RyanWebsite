@@ -4,25 +4,33 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #283044;
+  background-color: rgba(40, 48, 68, 0.8); /* Transparenz hinzugefügt */
+  backdrop-filter: blur(8px);
   padding: 18px 0;
   border-bottom: 1px solid #78a1bb;
   z-index: 1000;
+  transition: background-color 0.3s ease-in-out, padding 0.3s ease-in-out;
 }
 
 nav {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between; /* Buttons rechts ausrichten */
   align-items: center;
 }
 
 nav .logo {
-  margin-right: 12px;
+  margin-left: 16px; /* Abstandsänderung für das Logo, falls nötig */
   display: flex;
   justify-content: center;
   align-items: center;
   height: 48px;
   width: 48px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+nav .logo:hover {
+  transform: scale(1.1); /* Leichter Zoom-Effekt beim Hover */
 }
 
 nav .logo img {
@@ -36,10 +44,11 @@ nav ul {
   padding: 0;
   margin: 0;
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-end; /* Buttons rechts ausrichten */
   align-items: center;
   margin-bottom: 0;
   padding-bottom: 0;
+  margin-right: 16px; /* Optional: Abstand rechts, wenn gewünscht */
 }
 
 nav li {
@@ -54,7 +63,7 @@ nav a {
   font-weight: 600; /* Dickere Schrift */
   padding: 12px 20px;  /* Mehr Padding für größere Buttons */
   border-radius: 5px;
-  transition: background-color 1s, color 1s;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Anpassung der Transition-Dauer */
 }
 
 nav a:hover {
@@ -74,7 +83,7 @@ nav a:hover {
   width: 32px;
   height: 3px;
   background-color: #ebf5ee;
-  transition: all 0.3s;
+  transition: all 0.3s ease; /* Glattere Übergänge */
   position: relative;
 }
 
@@ -131,12 +140,16 @@ nav a:hover {
     top: 80px;
     left: 0;
     width: 100%;
-    background-color: #283044;
+    background-color: rgba(40, 48, 68, 1); /* Hintergrundfarbe angepasst */
+    backdrop-filter: blur(8px);
     padding: 18px 0;
+    transition: max-height 0.3s ease-in-out; /* Glatter Übergang beim Öffnen und Schließen */
   }
 
   nav ul.open {
     display: flex;
+    background-color: rgba(40, 48, 68, 1); /* Hintergrundfarbe angepasst */
+    backdrop-filter: blur(8px);
   }
 
   nav li {
@@ -156,7 +169,7 @@ nav a:hover {
   .burger-menu {
     display: block;
     position: absolute;
-    top:40px;
+    top: 40px;
     right: 22px;
   }
 }

@@ -1,0 +1,257 @@
+.documents-container {
+    position: relative;
+    background: linear-gradient(135deg, #ebf5ee 0%, #c2d3d9 100%);
+    border: 3px solid #283044;
+    border-radius: 15px;
+    padding: 20px;
+    width: 90%;
+    margin: 50px auto;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-family: "Courier", monospace;
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Platz zwischen Button und Titel */
+    position: relative;
+}
+
+.btn-back {
+    padding: 12px 25px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    background: #283044;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    z-index: 1000;
+    font-size: 1rem;
+}
+
+.btn-back:hover {
+    background-color: #1f2a36;
+}
+
+.documents-title {
+    color: #283044;
+    margin: 0 auto; /* Automatischer Außenabstand für Zentrierung */
+    font-size: 3rem;
+    text-decoration: underline;
+    text-decoration-color: #61dafb;
+    text-decoration-thickness: 3px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.document-section {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.document-section h2 {
+    color: #283044;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-decoration: underline;
+    text-decoration-color: #61dafb;
+    text-decoration-thickness: 2px;
+}
+
+.document-card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.document-item {
+    background: #ebf5ee;
+    border: 2px solid #283044;
+    border-radius: 10px;
+    padding: 20px;
+    width: calc(33% - 15px);
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.document-item:hover {
+    transform: scale(1.03);
+}
+
+.document-item h3 {
+    margin-bottom: 10px;
+    color: #283044;
+    font-size: 1.5rem;
+}
+
+.document-item p {
+    margin-bottom: 20px;
+    color: #555;
+    font-size: 1rem;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-download,
+.btn-preview {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    background-color: #283044;
+}
+
+.btn-download {
+    background: #283044;
+}
+
+.btn-download:hover {
+    background-color: #1f2a36;
+}
+
+.btn-preview {
+    background: #61dafb;
+}
+
+.btn-preview:hover {
+    background-color: #4bb0db;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    box-sizing: border-box;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+}
+
+.btn-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #e74c3c;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-close:hover {
+    background-color: #c0392b;
+}
+
+@media (max-width: 768px) {
+    .documents-container {
+        padding: 20px;
+        width: 85%;
+        margin: 20px auto;
+        box-shadow: none;
+        border-radius: 5px;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .documents-title {
+        font-size: 2rem;
+        text-align: center; /* Text auf kleinen Bildschirmen zentrieren */
+        position: static;
+        transform: none; /* Entfernt die absolute Positionierung */
+        margin-bottom: 20px;
+    }
+
+    .document-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .document-card {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .document-item {
+        width: 100%;
+        margin-bottom: 15px;
+        padding: 15px;
+    }
+
+    .document-item h3 {
+        font-size: 1.3rem;
+    }
+
+    .document-item p {
+        font-size: 0.95rem;
+    }
+
+    .button-group {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .btn-download,
+    .btn-preview {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    iframe {
+        height: 300px;
+    }
+
+    .modal-content {
+        width: 100%;
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .btn-close {
+        top: 5px;
+        right: 5px;
+        padding: 3px 7px;
+        font-size: 0.9rem;
+    }
+}

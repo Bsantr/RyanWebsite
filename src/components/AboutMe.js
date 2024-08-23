@@ -1,9 +1,10 @@
 import React from 'react';
 import '../styles/AboutMe.css'; // Sicherstellen, dass der Pfad korrekt ist
-import IntroImage from '../assets/bwd.jpg';
-import JourneyImage from '../assets/bwd.jpg';
-import HobbiesImage from '../assets/bwd.jpg';
-import VisionImage from '../assets/bwd.jpg';
+import IntroImage from '../assets/paris.jpeg';
+import JourneyImage from '../assets/journey.jpeg';
+import HobbiesImage from '../assets/body.png';
+import VisionImage from '../assets/vision.jpeg';
+
 const AboutMe = () => {
   return (
     <section id='aboutme' className="AboutMe">
