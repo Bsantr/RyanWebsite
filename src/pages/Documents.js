@@ -31,10 +31,10 @@ const DocumentsPage = () => {
             <h3>Download All</h3>
             <p>Download all documents in one package.</p>
             <div className="button-group">
-              <a href="./all_documents.zip" className="btn-download" download>Download</a>
+              <a href="./ryan_All.pdf" className="btn-download" download>Download</a>
               <button 
                 className="btn-preview" 
-                onClick={() => handlePreview('./all_documents_preview.pdf')}
+                onClick={() => handlePreview('./ryan_All.pdf')}
               >
                 Preview
               </button>
@@ -62,9 +62,9 @@ const DocumentsPage = () => {
           </div>
           <div className="document-item">
             <h3>BWD Grades</h3>
-            <p>My grades from semster 1-6</p>
+            <p>My grades from semster 1-4</p>
             <div className="button-group">
-              <a href="./ryan_lebenslauf.pdf" className="btn-download" download>Download</a>
+              <a href="./ryan_NotenBWD.pdf" className="btn-download" download>Download</a>
               <button 
                 className="btn-preview" 
                 onClick={() => handlePreview('./ryan_NotenBWD.pdf')}
@@ -84,10 +84,10 @@ const DocumentsPage = () => {
             <h3>GIBB Grades</h3>
             <p>My grade from semster 1-6</p>
             <div className="button-group">
-              <a href="./gibb_doc1.pdf" className="btn-download" download>Download</a>
+              <a href="./ryan_NotenGIBB.pdf" className="btn-download" download>Download</a>
               <button 
                 className="btn-preview" 
-                onClick={() => handlePreview('./gibb_doc1.pdf')}
+                onClick={() => handlePreview('./ryan_NotenGIBB.pdf')}
               >
                 Preview
               </button>
@@ -97,10 +97,10 @@ const DocumentsPage = () => {
             <h3>GIBB Documents</h3>
             <p>Other important documents</p>
             <div className="button-group">
-              <a href="./gibb_doc2.pdf" className="btn-download" download>Download</a>
+              <a href="./ryan_Kursbestätigung.pdf" className="btn-download" download>Download</a>
               <button 
                 className="btn-preview" 
-                onClick={() => handlePreview('./gibb_doc2.pdf')}
+                onClick={() => handlePreview('./ryan_Kursbestätigung.pdf')}
               >
                 Preview
               </button>
@@ -200,39 +200,39 @@ const DocumentsPage = () => {
         <p>Description or content related to Certificates.</p>
         <div className="document-card">
           <div className="document-item">
-            <h3>Certificate 1</h3>
-            <p>Description or content related to Certificate 1.</p>
+            <h3>Abacus 1</h3>
+            <p>Abacus Finanzbuchhaltung.</p>
             <div className="button-group">
-              <a href="./certificate1.pdf" className="btn-download" download>Download</a>
+              <a href="./ryan_Abacus1.pdf" className="btn-download" download>Download</a>
               <button 
                 className="btn-preview" 
-                onClick={() => handlePreview('./certificate1.pdf')}
+                onClick={() => handlePreview('./ryan_Abacus1.pdf')}
               >
                 Preview
               </button>
             </div>
           </div>
           <div className="document-item">
-            <h3>Certificate 2</h3>
-            <p>Description or content related to Certificate 2.</p>
+            <h3>Abacus 2</h3>
+            <p>Abacus Debitorenbuchhaltung.</p>
             <div className="button-group">
-              <a href="./certificate2.pdf" className="btn-download" download>Download</a>
+              <a href="./ryan_Abacus2.pdf" className="btn-download" download>Download</a>
               <button 
                 className="btn-preview" 
-                onClick={() => handlePreview('./certificate2.pdf')}
+                onClick={() => handlePreview('./ryan_Abacus2.pdf')}
               >
                 Preview
               </button>
             </div>
           </div>
           <div className="document-item">
-            <h3>Certificate 3</h3>
-            <p>Description or content related to Certificate 3.</p>
+            <h3>Abacus 3</h3>
+            <p>Abacus Kreditorenbuchhaltung.</p>
             <div className="button-group">
-              <a href="./certificate3.pdf" className="btn-download" download>Download</a>
+              <a href="./ryan_Abacus3.pdf" className="btn-download" download>Download</a>
               <button 
                 className="btn-preview" 
-                onClick={() => handlePreview('./certificate3.pdf')}
+                onClick={() => handlePreview('./ryan_Abacus3.pdf')}
               >
                 Preview
               </button>

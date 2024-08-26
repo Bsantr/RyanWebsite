@@ -1,48 +1,46 @@
-import React from 'react';
-import '../styles/FaceID.css';
-import faceDetail1 from '../assets/FaceDetail1.png';
-import faceDetail2 from '../assets/faceDetail2.png';
+import React, { useState, useEffect } from 'react';
+import { Document, Page, pdfjs } from 'react-pdf';
+import '../styles/FaceID.css'; // Importiert die angepasste CSS-Datei
 import downloadIcon from '../assets/download.png';
 import githubIcon from '../assets/github.png';
 
+// Korrektur des Pfads zum ersten PDF
+const samplePDF1 = `${process.env.PUBLIC_URL}/faceID.pdf`;
+// Korrektur des Pfads zum zweiten PDF
+const samplePDF2 = `${process.env.PUBLIC_URL}/faceID2.pdf`; // Füge den Pfad zum zweiten PDF hinzu
+
+// Import the worker from pdfjs-dist
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
+
 const FaceID = () => {
   return (
-    <div className="project-page">
-      <div className="header-section">
-        <div className="project-header">
-          <h1>FaceID Recognition</h1>
-          <p className="project-description">
-            Welcome to the FaceID Recognition project! This application uses advanced facial recognition technology to provide secure and seamless authentication.
-          </p>
-          <div className="button-container">
-            <a href="/path/to/download" className="btn">
-              <img src={downloadIcon} alt="Download Icon" className="button-icon" />
-              Download
-            </a>
-            <a href="https://github.com/your-repo" className="btn">
-              <img src={githubIcon} alt="GitHub Icon" className="button-icon" />
-              GitHub
-            </a>
-          </div>
+    <div className="FaceIDSection">
+      <h2 className="section-title">FaceID Recognition</h2>
+      <div className="text-box">
+        <p>
+          Welcome to the FaceID Recognition project! This application uses advanced facial recognition technology to provide secure and seamless authentication.
+        </p>
+        <div className="button-group">
+          <a href={samplePDF1} download className="btn">
+            <img src={downloadIcon} alt="Download Icon" className="button-icon" />
+            Download
+          </a>
+          <a href="https://github.com/PJR23/Facelogin-Calendar-App" className="btn">
+            <img src={githubIcon} alt="GitHub Icon" className="button-icon" />
+            GitHub
+          </a>
         </div>
       </div>
-      <div className="content-section">
-        <div className="pdf-container">
-          <iframe
-            src="./KNW294_bwd.pdf"
-            className="pdf-viewer"
-            title="PDF Viewer"
-          />
+      <div className="pdf-container-wrapper">
+        <div className="pdf-container" style={{ border: '1px solid #ccc' }}>
+          <Document file={samplePDF1} className="pdf-document">
+            <Page pageNumber={1} />
+          </Document>
         </div>
-        <div className="images-container">
-          <div className="image-item">
-            <img src={faceDetail1} alt="Face Detail 1" className="detail-image" />
-            <p className="image-caption">Detailed view of facial recognition algorithms</p>
-          </div>
-          <div className="image-item">
-            <img src={faceDetail2} alt="Face Detail 2" className="detail-image" />
-            <p className="image-caption">Security features of FaceID</p>
-          </div>
+        <div className="pdf-container" style={{ border: '1px solid #ccc' }}>
+          <Document file={samplePDF2} className="pdf-document">
+            <Page pageNumber={1} />
+          </Document>
         </div>
       </div>
     </div>

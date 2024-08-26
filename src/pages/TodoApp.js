@@ -1,46 +1,44 @@
 import React from 'react';
-import '../styles/TodoApp.css';
-import todoAbstract from '../assets/faceAbstract.png';
-import todoDetail1 from '../assets/FaceDetail1.png'
-import todoDetail2 from '../assets/FaceDetail1.png';
+import { Document, Page, pdfjs } from 'react-pdf';
+import '../styles/FaceID.css'; // Verwende dieselbe CSS-Datei wie bei den anderen Apps
 import downloadIcon from '../assets/download.png';
 import githubIcon from '../assets/github.png';
 
+// Korrektur des Pfads zu den PDFs
+const samplePDF1 = `${process.env.PUBLIC_URL}/shooterGame.pdf`;
+const samplePDF2 = `${process.env.PUBLIC_URL}/shooterGame2.pdf`;
+
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
+
 const TodoApp = () => {
   return (
-    <div className="project-page">
-      <div className="header-section">
-        <div className="project-header">
-          <h1>Todo App</h1>
-          <p className="project-description">
-            Manage your tasks efficiently with this Todo application. Stay organized and keep track of your progress.
-          </p>
-          <div className="button-container">
-            <a href="/path/to/download" className="btn">
-              <img src={downloadIcon} alt="Download Icon" className="button-icon" />
-              Download
-            </a>
-            <a href="https://github.com/your-repo" className="btn">
-              <img src={githubIcon} alt="GitHub Icon" className="button-icon" />
-              GitHub
-            </a>
-          </div>
+    <div className="FaceIDSection">
+      <h2 className="section-title">Todo App</h2>
+      <div className="text-box">
+        <p>
+          Manage your tasks efficiently with this Todo application. Stay organized and keep track of your progress.
+        </p>
+        <div className="button-group">
+          <a href={samplePDF1} download className="btn">
+            <img src={downloadIcon} alt="Download Icon" className="button-icon" />
+            Download
+          </a>
+          <a href="https://github.com/your-repo" className="btn">
+            <img src={githubIcon} alt="GitHub Icon" className="button-icon" />
+            GitHub
+          </a>
         </div>
       </div>
-      <div className="images-section">
-        <div className="left-column">
-          <img src={todoAbstract} alt="Todo Abstract" className="abstract-image" />
-          <p className="image-caption">Overview of the Todo App</p>
+      <div className="pdf-container-wrapper">
+        <div className="pdf-container" style={{ border: '1px solid #ccc' }}>
+          <Document file={samplePDF1} className="pdf-document">
+            <Page pageNumber={1} />
+          </Document>
         </div>
-        <div className="right-column">
-          <div className="detail-item">
-            <img src={todoDetail1} alt="Todo Detail 1" className="detail-image" />
-            <p className="image-caption">Task management interface</p>
-          </div>
-          <div className="detail-item">
-            <img src={todoDetail2} alt="Todo Detail 2" className="detail-image" />
-            <p className="image-caption">Task organization and filters</p>
-          </div>
+        <div className="pdf-container" style={{ border: '1px solid #ccc' }}>
+          <Document file={samplePDF2} className="pdf-document">
+            <Page pageNumber={1} />
+          </Document>
         </div>
       </div>
     </div>

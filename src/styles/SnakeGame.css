@@ -1,125 +1,189 @@
+:root {
+  --primary-color: #00c8ff;
+  --secondary-color: #4fa3b8;
+  --border-color: #ddd;
+  --text-color: #666;
+  --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  --frame-color: #283044; /* Farbe für den Rahmen */
+}
 
-.project-page {
-    padding: 20px;
+.FaceIDSection {
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5em;
+  color: #283044;
+  text-decoration: underline;
+  text-decoration-color: #61dafb;
+  text-decoration-thickness: 3px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.text-box {
+  padding: 2vw;
+  border: 3px solid var(--frame-color);
+  border-radius: 15px;
+  background: linear-gradient(135deg, #ebf5ee 0%, #c2d3d9 100%);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  max-width: 80%;
+  margin: 0 auto 3vh auto;
+  text-align: center;
+}
+
+.text-box p {
+  margin: 0 auto 3vh auto;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #283044;
+  line-height: 1.6;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 2vw;
+}
+
+.content-frame {
+  padding: 2vw;
+  border: 3px solid var(--frame-color);
+  border-radius: 15px;
+  background-color: #f0f0f0;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 90%;
+  margin: 0 auto 3vh auto;
+}
+
+/* PDF und Bilder nebeneinander anordnen */
+.content-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Zentriert den Inhalt vertikal */
+  gap: 2vw;
+}
+
+/* PDF Container */
+.pdf-container {
+  background-color: #fbfafa;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+}
+
+/* Images Container */
+.images-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Zentriert die Bilder vertikal */
+  gap: 3vh; /* Abstand zwischen den Bildern */
+  width: calc(50% - 2vw); /* Bilder nehmen die Hälfte der Breite des Containers ein */
+}
+
+.image-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  flex-direction: column;
+}
+
+.detail-image {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+}
+
+.image-caption {
+  font-size: 1.2rem;
+  color: var(--text-color);
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .FaceIDSection {
+    padding: 10px;
   }
-  
-  .header-section {
-    padding: 5px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #f4f4f4;
+
+  .section-title {
+    font-size: 1.5rem;
   }
-  
-  .project-header {
-    text-align: center;
+
+  .text-box {
+    padding: 4vw;
+    max-width: 90%;
   }
-  
-  .project-header h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-    text-decoration: underline;
-    text-decoration-color: #61dafb;
-    text-decoration-thickness: 3px;
-  }
-  
-  .project-description {
-    font-size: 1.2rem;
-    color: #333;
-    margin-bottom: 20px;
-    padding: 10px 15px;
-    border-left: 4px solid #61dafb;
-    border-right: 4px solid #61dafb;
-    background-color: #f4f4f4;
-    line-height: 1.6;
-    text-align: center;
-  }
-  
-  .button-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 20px;
-  }
-  
-  .btn {
-    display: flex;
-    align-items: center;
-    background-color: #61dafb;
-    color: white;
-    padding: 15px 30px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 1.2rem;
-    transition: background-color 0.3s;
-  }
-  
-  .btn:hover {
-    background-color: #4fa3b8;
-  }
-  
-  .button-icon {
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
-  }
-  
-  .images-section {
-    display: flex;
-    justify-content: space-between;
-    background-color: #fbfafa;
-    padding: 5px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  }
-  
-  .left-column {
-    flex: 1;
-    display: flex;
+
+  .content-section {
     flex-direction: column;
     align-items: center;
   }
-  
-  .abstract-image {
-    width: 100%;
-    max-width: 700px;
+
+  .content-frame {
+    padding: 4vw;
+    max-width: 100%;
+  }
+
+  .pdf-container {
+    width: 80%;
     height: auto;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px;
+    margin: 0 auto;
   }
-  
-  .right-column {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
+
+  .images-container {
+    width: 80%;
+    margin-top: 3vh;
+    gap: 4vh; /* Etwas größerer Abstand zwischen Bildern auf kleineren Bildschirmen */
   }
-  
-  .detail-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-  }
-  
+
   .detail-image {
     width: 100%;
-    max-width: 500px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.2rem;
+  }
+
+  .text-box {
+    padding: 6vw;
+    max-width: 100%;
+  }
+
+  .content-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content-frame {
+    padding: 6vw;
+    max-width: 100%;
+  }
+
+  .pdf-container {
+    width: 100%;
     height: auto;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px;
   }
-  
-  .image-caption {
-    font-size: 0.9rem;
-    color: #666;
-    text-align: center;
+
+  .images-container {
+    width: 100%;
   }
-  
+
+  .detail-image {
+    width: 100vw;
+    height: auto;
+  }
+}

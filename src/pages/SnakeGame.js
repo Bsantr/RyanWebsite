@@ -1,46 +1,44 @@
 import React from 'react';
-import '../styles/SnakeGame.css';
-import snakeAbstract from '../assets/faceAbstract.png';
-import snakeDetail1 from '../assets/FaceDetail1.png';
-import snakeDetail2 from '../assets/FaceDetail1.png';
+import { Document, Page, pdfjs } from 'react-pdf';
+import '../styles/FaceID.css'; // Verwende dieselbe CSS-Datei wie bei FaceID
 import downloadIcon from '../assets/download.png';
 import githubIcon from '../assets/github.png';
 
+// Korrektur des Pfads zu den PDFs
+const samplePDF1 = `${process.env.PUBLIC_URL}/SnakeGame.pdf`;
+const samplePDF2 = `${process.env.PUBLIC_URL}/SnakeGame2pdf.pdf`;
+
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
+
 const SnakeGame = () => {
   return (
-    <div className="project-page">
-      <div className="header-section">
-        <div className="project-header">
-          <h1>Snake Game</h1>
-          <p className="project-description">
-            Explore the classic Snake Game with modern twists. This game challenges your reflexes and strategic thinking.
-          </p>
-          <div className="button-container">
-            <a href="/path/to/download" className="btn">
-              <img src={downloadIcon} alt="Download Icon" className="button-icon" />
-              Download
-            </a>
-            <a href="https://github.com/your-repo" className="btn">
-              <img src={githubIcon} alt="GitHub Icon" className="button-icon" />
-              GitHub
-            </a>
-          </div>
+    <div className="FaceIDSection">
+      <h2 className="section-title">Snake Game</h2>
+      <div className="text-box">
+        <p>
+          Explore the classic Snake Game with modern twists. This game challenges your reflexes and strategic thinking.
+        </p>
+        <div className="button-group">
+          <a href={samplePDF1} download className="btn">
+            <img src={downloadIcon} alt="Download Icon" className="button-icon" />
+            Download
+          </a>
+          <a href="https://github.com/your-repo" className="btn">
+            <img src={githubIcon} alt="GitHub Icon" className="button-icon" />
+            GitHub
+          </a>
         </div>
       </div>
-      <div className="images-section">
-        <div className="left-column">
-          <img src={snakeAbstract} alt="Snake Abstract" className="abstract-image" />
-          <p className="image-caption">Overview of the Snake Game</p>
+      <div className="pdf-container-wrapper">
+        <div className="pdf-container" style={{ border: '1px solid #ccc' }}>
+          <Document file={samplePDF1} className="pdf-document">
+            <Page pageNumber={1} />
+          </Document>
         </div>
-        <div className="right-column">
-          <div className="detail-item">
-            <img src={snakeDetail1} alt="Snake Detail 1" className="detail-image" />
-            <p className="image-caption">Gameplay interface</p>
-          </div>
-          <div className="detail-item">
-            <img src={snakeDetail2} alt="Snake Detail 2" className="detail-image" />
-            <p className="image-caption">Score and level system</p>
-          </div>
+        <div className="pdf-container" style={{ border: '1px solid #ccc' }}>
+          <Document file={samplePDF2} className="pdf-document">
+            <Page pageNumber={1} />
+          </Document>
         </div>
       </div>
     </div>

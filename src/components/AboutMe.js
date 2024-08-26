@@ -1,5 +1,6 @@
 import React from 'react';
-import '../styles/AboutMe.css'; // Sicherstellen, dass der Pfad korrekt ist
+import '../styles/AboutMe.css'; 
+import { Link } from 'react-scroll'; // Hinzufügen von react-scroll für Scroll-Verhalten
 import IntroImage from '../assets/paris.jpeg';
 import JourneyImage from '../assets/journey.jpeg';
 import HobbiesImage from '../assets/body.png';
@@ -57,7 +58,7 @@ const AboutMe = () => {
               </div>
               <div className="about-me-text">
                 <p><strong>Vision for the Future</strong></p>
-                <p>Looking ahead, I aspire to work in a position where I feel comfortable and can contribute meaningfully. I aim to work on exciting projects that benefit the company and its customers.</p>
+                <p>Looking ahead, I aspire to work in a position where I feel comfortable and can contribute meaningfully. I aim to work on exciting <Link to="mywork" smooth={true} duration={500} className="projects-link">projects</Link> that benefit the company and its customers.</p>
               </div>
             </div>
           </div>

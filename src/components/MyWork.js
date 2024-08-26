@@ -5,7 +5,7 @@ import calendarAppImage from '../assets/kallender.jpg';
 import snakeGameImage from '../assets/snakegame.png';
 import learningAppImage from '../assets/learningApp.jpg';
 import todoAppImage from '../assets/todoApp.png';
-import shooterGameImage from '../assets/shooterGame.png';
+//import shooterGameImage from '../assets/shooterGame.png';
 import { useNavigate } from 'react-router-dom';
 
 const projects = [
@@ -14,7 +14,7 @@ const projects = [
   { title: 'Snake Game', description: 'A fun and engaging snake game.', image: snakeGameImage, path: '/snakegame' },
   { title: 'Learning App', description: 'A comprehensive app for various learning modules.', image: learningAppImage, path: '/learningapp' },
   { title: 'Todo App', description: 'A simple and effective to-do list application.', image: todoAppImage, path: '/todoapp' },
-  { title: 'Shooter Game', description: 'An exciting and fast-paced shooter game.', image: shooterGameImage, path: '/shootergame' },
+ 
 ];
 
 const MyWork = () => {

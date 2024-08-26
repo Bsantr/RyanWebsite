@@ -116,6 +116,21 @@
   text-align: center; /* Zentriert den Titel */
 }
 
+/* Stil für den "Projects"-Link */
+.projects-link {
+  color: #61dafb;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.projects-link:hover {
+  background-color: #61dafb;
+  color: #fff;
+}
+
 @media (max-width: 768px) {
   .AboutMe {
     padding: 50px 5%;
