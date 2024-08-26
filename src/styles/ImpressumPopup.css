@@ -1,0 +1,52 @@
+.impressum-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .impressum-popup {
+    background: #fff; /* Weißer Hintergrund für bessere Sichtbarkeit */
+    padding: 30px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 800px; /* Maximale Breite des Popups */
+    max-height: 80vh; /* Maximale Höhe des Popups */
+    overflow-y: auto; /* Scrollen bei langem Inhalt */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center; /* Zentriert den Text im Popup */
+  }
+  
+  .impressum-popup h3 {
+    margin-top: 0;
+    color: #283044; /* Farbgebung für die Überschrift */
+    font-size: 1.5rem; /* Größere Schriftgröße für die Überschrift */
+  }
+  
+  .impressum-popup p {
+    margin: 15px 0;
+    color: #283044; /* Schriftfarbe für den Text */
+    font-size: 1rem;
+    line-height: 1.5; /* Zeilenhöhe für bessere Lesbarkeit */
+  }
+  
+  .impressum-popup button {
+    background: #283044;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 20px;
+  }
+  
+  .impressum-popup button:hover {
+    background: #1e2a36;
+  }
+  

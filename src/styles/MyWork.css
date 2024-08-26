@@ -30,14 +30,12 @@
 
 /* Heading styles */
 .WorkSection h2 {
-  margin-bottom: 30px;
-  font-size: 2rem;
+  margin-bottom: 40px;
+  font-size: 2.5rem;
   color: #283044;
   text-decoration: underline;
   text-decoration-color: #61dafb;
-  text-decoration-thickness: 2px;
-  position: relative;
-  z-index: 1;
+  text-decoration-thickness: 3px;
 }
 
 /* Work Intro Box Styles */

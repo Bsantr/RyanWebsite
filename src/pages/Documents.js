@@ -114,8 +114,8 @@ const DocumentsPage = () => {
         <p>Description or content related to ÜK.</p>
         <div className="document-card">
           <div className="document-item">
-            <h3>ÜK 1</h3>
-            <p>Description or content related to ÜK 1.</p>
+            <h3>ÜK 187</h3>
+            <p>ICT-Arbeitsplatz mit Betriebssystem in Betrieb nehmen.</p>
             <div className="button-group">
               <a href="./KNW187_bwd.pdf" className="btn-download" download>Download</a>
               <button 
@@ -127,8 +127,8 @@ const DocumentsPage = () => {
             </div>
           </div>
           <div className="document-item">
-            <h3>ÜK 2</h3>
-            <p>Description or content related to ÜK 2.</p>
+            <h3>ÜK 210</h3>
+            <p>Public Cloud für Anwendungen nutzen.</p>
             <div className="button-group">
               <a href="./KNW210_bwd.pdf" className="btn-download" download>Download</a>
               <button 
@@ -140,8 +140,8 @@ const DocumentsPage = () => {
             </div>
           </div>
           <div className="document-item">
-            <h3>ÜK 3</h3>
-            <p>Description or content related to ÜK 3.</p>
+            <h3>ÜK 106</h3>
+            <p>Datenbanken abfragen, bearbeiten und warten.</p>
             <div className="button-group">
               <a href="./KNW106_bwd.pdf" className="btn-download" download>Download</a>
               <button 
@@ -153,8 +153,9 @@ const DocumentsPage = () => {
             </div>
           </div>
           <div className="document-item">
-            <h3>ÜK 4</h3>
-            <p>Description or content related to ÜK 4.</p>
+            <h3>ÜK 294</h3>
+            <p>Frontend einer interaktiven Webapplikation realisieren
+            .</p>
             <div className="button-group">
               <a href="./KNW294_bwd.pdf" className="btn-download" download>Download</a>
               <button 
@@ -166,8 +167,8 @@ const DocumentsPage = () => {
             </div>
           </div>
           <div className="document-item">
-            <h3>ÜK 5</h3>
-            <p>Description or content related to ÜK 5.</p>
+            <h3>ÜK 295</h3>
+            <p>Backend für Applikationen realisieren.</p>
             <div className="button-group">
               <a href="./KNW295_bwd.pdf" className="btn-download" download>Download</a>
               <button 
@@ -179,8 +180,8 @@ const DocumentsPage = () => {
             </div>
           </div>
           <div className="document-item">
-            <h3>ÜK 6</h3>
-            <p>Description or content related to ÜK 6.</p>
+            <h3>ÜK 335</h3>
+            <p>Mobile-Applikation realisieren.</p>
             <div className="button-group">
               <a href="./KNW335_bwd.pdf" className="btn-download" download>Download</a>
               <button 

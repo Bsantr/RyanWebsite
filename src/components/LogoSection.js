@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Verwende useNavigate statt useHistory
 import '../styles/LogoSection.css'; // Pfad zur CSS-Datei
 import LogoSectionME from '../assets/LogoSectionME.png';
 import { FaEnvelope, FaLinkedin, FaTwitter } from 'react-icons/fa'; // Import icons from react-icons
@@ -13,6 +14,8 @@ const LogoSection = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [charIndex, setCharIndex] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(150);
+
+  const navigate = useNavigate(); // Verwende useNavigate für Navigation
 
   const fullIntroText = "Welcome to my Page. I'm Ryan";
 
@@ -53,6 +56,10 @@ const LogoSection = () => {
     }
   }, [introText, introCompleted, charIndex, isDeleting, wordIndex, typingSpeed]);
 
+  const handleMoreButtonClick = () => {
+    navigate('/login'); // Verwende navigate, um zur Login-Seite zu wechseln
+  };
+
   return (
     <section className="LogoSection relative">
       <div className="content-container relative z-10">
@@ -71,18 +78,20 @@ const LogoSection = () => {
                 <p className="profession-text">
                   I am a <strong>{displayedText}</strong>
                 </p>
-                <button className="more-button">Mehr über mich</button>
+                <button className="more-button" onClick={handleMoreButtonClick}>
+                  More About Me
+                </button>
               </>
             )}
           </div>
-          <div className="icon-group"> {/* Moved inside center-content and below logo-text-card */}
-            <a href="mailto:your.email@example.com" className="icon-button" title="Mail">
+          <div className="icon-group">
+            <a href="mailto:contact@ryanvonmay.com" className="icon-button" title="Mail">
               <FaEnvelope size={60} />
             </a>
-            <a href="https://www.linkedin.com/in/your-profile" className="icon-button" title="LinkedIn">
+            <a href="https://www.linkedin.com/in/ryan-santos-von-may-101b87324" className="icon-button" title="LinkedIn">
               <FaLinkedin size={60} />
             </a>
-            <a href="https://twitter.com/your-profile" className="icon-button" title="Twitter">
+            <a href="https://x.com/bsantr477" className="icon-button" title="Twitter">
               <FaTwitter size={60} />
             </a>
           </div>

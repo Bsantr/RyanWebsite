@@ -1,6 +1,5 @@
 import React from 'react';
 import '../styles/FaceID.css';
-import faceAbstract from '../assets/faceAbstract.png';
 import faceDetail1 from '../assets/FaceDetail1.png';
 import faceDetail2 from '../assets/faceDetail2.png';
 import downloadIcon from '../assets/download.png';
@@ -27,17 +26,20 @@ const FaceID = () => {
           </div>
         </div>
       </div>
-      <div className="images-section">
-        <div className="left-column">
-          <img src={faceAbstract} alt="Face Abstract" className="abstract-image" />
-          <p className="image-caption">Overview of FaceID Technology</p>
+      <div className="content-section">
+        <div className="pdf-container">
+          <iframe
+            src="./KNW294_bwd.pdf"
+            className="pdf-viewer"
+            title="PDF Viewer"
+          />
         </div>
-        <div className="right-column">
-          <div className="detail-item">
+        <div className="images-container">
+          <div className="image-item">
             <img src={faceDetail1} alt="Face Detail 1" className="detail-image" />
             <p className="image-caption">Detailed view of facial recognition algorithms</p>
           </div>
-          <div className="detail-item">
+          <div className="image-item">
             <img src={faceDetail2} alt="Face Detail 2" className="detail-image" />
             <p className="image-caption">Security features of FaceID</p>
           </div>
