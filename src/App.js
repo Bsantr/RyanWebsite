@@ -13,7 +13,7 @@ import LearningApp from './pages/LearningApp';
 import TodoApp from './pages/TodoApp';
 import ShooterGame from './pages/ShooterGame';
 import LoginPage from './pages/LoginPage';
-import Documents from './pages/Documents'; // Assuming this is your Documents page
+import Documents from './pages/Documents';
 import Footer from './components/Footer'; 
 import './styles/App.css';
 
@@ -60,6 +60,8 @@ const Home = () => {
 
 const ProjectLayout = ({ children }) => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const noBackButtonPaths = ['/login', '/documents'];
 
   const handleBackClick = () => {
     navigate('/');
@@ -70,16 +72,21 @@ const ProjectLayout = ({ children }) => {
 
   return (
     <div>
-      <button onClick={handleBackClick} className="back-button">
-        &larr; Back
-      </button>
+      {/* Conditionally render back button */}
+      {!noBackButtonPaths.includes(location.pathname) && (
+        <button onClick={handleBackClick} className="back-button">
+          &larr; Back
+        </button>
+      )}
       {children}
     </div>
   );
 };
-// jhdjkwhfdsw
+
 const App = () => {
   const location = useLocation();
+  const noFooterPaths = ['/faceid', '/calendarapp', '/snakegame', '/learningapp', '/todoapp'];
+
   return (
     <div>
       <Routes>
@@ -91,10 +98,10 @@ const App = () => {
         <Route path="/todoapp" element={<ProjectLayout><TodoApp /></ProjectLayout>} />
         <Route path="/shootergame" element={<ProjectLayout><ShooterGame /></ProjectLayout>} />
         <Route path="/login" element={<ProjectLayout><LoginPage /></ProjectLayout>} />
-        <Route path="/documents" element={<ProjectLayout><Documents /></ProjectLayout>} /> {/* Added Documents route */}
+        <Route path="/documents" element={<ProjectLayout><Documents /></ProjectLayout>} />
       </Routes>
-      {/* Footer only visible if the path is not '/login' and not '/documents' */}
-      {location.pathname !== '/login' && location.pathname !== '/documents' && <Footer />}
+      {/* Footer only visible if the path is not in noFooterPaths array and not '/login' or '/documents' */}
+      {!noFooterPaths.includes(location.pathname) && location.pathname !== '/login' && location.pathname !== '/documents' && <Footer />}
     </div>
   );
 };

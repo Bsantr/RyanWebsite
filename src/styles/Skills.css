@@ -73,7 +73,6 @@
 }
 
 .skill-item p {
-
   margin-top: 5px;
 }
 
@@ -149,22 +148,58 @@
   font-size: 1rem;
 }
 
+/* Kategorie-Icon-Stil */
+/* Anpassungen für Kategorie-Icons */
+.category-icon {
+  margin-left: 10px; /* Abstand zwischen Titel und Icon */
+  color: #283044; /* Farbe des Icons */
+  font-size: 2rem; /* Größeres Icon */
+  vertical-align: middle; /* Vertikale Ausrichtung */
+}
+
+
+/* Progress Bar Styles */
 .progress-bar {
-  height: 12px;
+  height: 16px;
   width: 100%;
-  background: #c2c2c2;
-  border-radius: 6px;
+  background: #e0e0e0;
+  border-radius: 8px;
   margin-top: 5px;
   overflow: hidden;
-  box-sizing: border-box;
+  position: relative;
 }
 
 .progress {
   height: 100%;
-  background: linear-gradient(to right, #87CEFA, #4169E1, #003366);
-  border-radius: 6px;
-  width: 100%;
-  transition: width 0.3s ease;
+  background: linear-gradient(to right, #87CEFA, #4169E1);
+  border-radius: 8px 0 0 8px; /* Abgerundete linke Ecken */
+  width: 0; /* Start at 0 width */
+  transition: width 1s ease-out; /* Smooth transition for loading */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.progress.loading {
+  animation: loadProgress 2s forwards; /* Add loading animation */
+}
+
+.progress-percentage {
+  position: absolute;
+  top: -25px; /* Adjust to position percentage text above bar */
+  right: 0;
+  font-weight: bold;
+  font-size: 0.875rem;
+  color: #283044;
+}
+
+@keyframes loadProgress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: var(--progress-width); /* Set by inline style */
+  }
 }
 
 @media (max-width: 768px) {

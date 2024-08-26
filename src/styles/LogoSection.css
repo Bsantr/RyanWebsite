@@ -3,8 +3,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  padding: 40px;
+  min-height: 100vh; /* Ensure it takes up at least the full viewport height */
+  padding: 10px 5px; /* Significantly reduce top padding */
   position: relative;
   overflow: hidden;
 }
@@ -46,7 +46,7 @@
 }
 
 .banner-container {
-  max-width: 100%;
+  max-width: 80%;
   width: auto;
   border: none;
 }
@@ -61,7 +61,7 @@
 
 .logo-text-card {
   max-width: 800px;
-  padding: 30px;
+  padding: 20px; /* Reduce padding inside the card */
   border: 3px solid #283044;
   border-radius: 15px;
   background: linear-gradient(135deg, #ebf5ee 0%, #c2d3d9 100%);
@@ -93,8 +93,8 @@
 }
 
 .more-button {
-  margin-top: 20px;
-  padding: 12px 25px;
+  margin-top: 10px; /* Reduce space above the button */
+  padding: 10px 20px; /* Reduce padding inside the button */
   border: 2px solid #283044;
   border-radius: 30px;
   background-color: #283044;
@@ -122,11 +122,11 @@
 .icon-group {
   display: flex;
   justify-content: center;
-  margin-top: 30px; /* Space between the card and the icons */
+  margin-top: 20px; /* Significantly reduce space between the card and the icons */
 }
 
 .icon-button {
-  margin: 0 25px; /* Larger space between icons */
+  margin: 0 15px; /* Reduce space between icons */
   color: #283044;
   text-decoration: none;
   transition: color 0.3s ease;
@@ -137,11 +137,26 @@
 }
 
 .icon-button svg {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
+}
+
+@media (max-width: 1024px) { /* For laptops and medium screens */
+  .LogoSection {
+    padding: 10px 5px; /* Further reduce padding */
+  }
+
+  .banner-container {
+    max-width: 50%; /* Make the image significantly smaller */
+    margin-top: -5px; /* Slightly move the image upwards */
+  }
 }
 
 @media (max-width: 768px) {
+  .LogoSection {
+    padding: 5px 5px; /* Adjust padding for smaller screens */
+  }
+
   .content-container {
     flex-direction: column;
     align-items: center;
@@ -162,7 +177,7 @@
   }
 
   .banner-container {
-    margin-bottom: 20px;
+    margin-bottom: 10px; /* Reduce margin for smaller screens */
   }
 
   .logo-text-card {
@@ -171,19 +186,19 @@
   }
 
   .icon-group {
-    margin-top: 30px; /* Adjust space for smaller screens */
+    margin-top: 20px; /* Further reduce space for smaller screens */
   }
 
   .icon-button svg {
-    width: 50px; /* Slightly smaller icons for smaller screens */
-    height: 50px;
+    width: 40px; /* Make icons smaller */
+    height: 40px;
   }
 }
 
 @media (max-width: 576px) {
   .LogoSection {
     height: auto; /* Allow the section height to adjust based on content */
-    padding: 20px; /* Reduce padding for smaller screens */
+    padding: 5px 5px; /* Further reduce padding for very small screens */
   }
 
   .banner-container {
@@ -208,13 +223,31 @@
 
   .tweet-card-container {
     margin-left: 0;
-    margin-top: 20px;
+    margin-top: 10px; /* Reduce margin */
     max-width: 100%;
     transform: scale(1); /* Restore scale to normal */
   }
 
   .icon-group {
-    margin-top: 50px; /* Push the icons further down */
-    display: none; /* Hide the icon group */
+    margin-top: 20px; /* Space between the card and the icons */
+    display: flex; /* Ensure the icons are visible */
+    flex-wrap: wrap; /* Allow icons to wrap to the next line if needed */
+    justify-content: center;
+    width: 100%; /* Make the icon group take full width */
+  }
+
+  .icon-button {
+    margin: 5px; /* Reduce margins between icons */
+  }
+
+  .icon-button svg {
+    width: 40px; /* Smaller icons */
+    height: 40px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .LogoSection {
+    padding-top: 100px; /* Increase padding for very large screens */
   }
 }

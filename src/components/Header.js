@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import '../styles/Header.css';
-import LogoImage from '../assets/LogoImage.png'; // Passe den Pfad zum Logo-Bild an
+import LogoImage from '../assets/LogoImage.png'; // Adjust the path to the logo image
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const handleScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // Scrolls to the top of the page
+  };
+
   const handleScrollToSection = (sectionId) => {
     document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
-    setMenuOpen(false); // Menü schließen nach Navigation
+    setMenuOpen(false); // Close the menu after navigation
   };
 
   const toggleMenu = () => {
@@ -19,10 +23,10 @@ const Header = () => {
       <nav>
         <div
           className="logo"
-          onClick={() => handleScrollToSection('aboutme')}
-          style={{ cursor: 'pointer' }} // Hinzugefügt: Wechselt den Cursor zu einem Zeiger
+          onClick={handleScrollToTop} // Updated to scroll to the top of the page
+          style={{ cursor: 'pointer' }}
         >
-          <img src={LogoImage} alt="Logo" /> {/* Pfad zum Bild anpassen */}
+          <img src={LogoImage} alt="Logo" /> {/* Adjust the path to your image */}
         </div>
         <div className="burger-menu" onClick={toggleMenu}>
           <div className={menuOpen ? "burger open" : "burger"}></div>

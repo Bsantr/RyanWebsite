@@ -1,19 +1,19 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '../styles/MyWork.css'; // Pfad zur CSS-Datei
 import faceIDImage from '../assets/faceid.jpg';
-import calendarAppImage from '../assets/kallender.jpg';
+import calendarAppImage from '../assets/Kalender.png';
 import snakeGameImage from '../assets/snakegame.png';
-import learningAppImage from '../assets/learningApp.jpg';
+import learningAppImage from '../assets/learningApp.png';
 import todoAppImage from '../assets/todoApp.png';
 //import shooterGameImage from '../assets/shooterGame.png';
 import { useNavigate } from 'react-router-dom';
 
 const projects = [
-  { title: 'FaceID', description: 'A project focused on facial recognition technology.', image: faceIDImage, path: '/faceid' },
-  { title: 'Calendar App', description: 'A user-friendly calendar application.', image: calendarAppImage, path: '/calendarapp' },
+  { title: 'FaceID', description: 'A project for facial recognition technology.', image: faceIDImage, path: '/faceid' },
+  { title: 'StudyPal', description: ' App for various learning modules.', image: learningAppImage, path: '/learningapp' },
   { title: 'Snake Game', description: 'A fun and engaging snake game.', image: snakeGameImage, path: '/snakegame' },
-  { title: 'Learning App', description: 'A comprehensive app for various learning modules.', image: learningAppImage, path: '/learningapp' },
-  { title: 'Todo App', description: 'A simple and effective to-do list application.', image: todoAppImage, path: '/todoapp' },
+  { title: 'First Website', description: 'My first self made project.', image: calendarAppImage, path: '/calendarapp' },
+  { title: 'Shooter Game', description: 'A simple single player shooter game.', image: todoAppImage, path: '/todoapp' },
  
 ];
 

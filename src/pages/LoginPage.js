@@ -22,6 +22,7 @@ const LoginPage = () => {
 
   return (
     <div className="login-container">
+      {/* Restored Back Button */}
       <div className="back-button-container">
         <button onClick={handleBackClick} className="back-button">
           &larr; Back

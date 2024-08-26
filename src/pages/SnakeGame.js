@@ -23,7 +23,7 @@ const SnakeGame = () => {
             <img src={downloadIcon} alt="Download Icon" className="button-icon" />
             Download
           </a>
-          <a href="https://github.com/your-repo" className="btn">
+          <a href="https://github.com/Bsantr/SnakeGame.git" className="btn">
             <img src={githubIcon} alt="GitHub Icon" className="button-icon" />
             GitHub
           </a>

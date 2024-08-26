@@ -23,7 +23,7 @@ const CalendarApp = () => {
             <img src={downloadIcon} alt="Download Icon" className="button-icon" />
             Download
           </a>
-          <a href="https://github.com/your-repo" className="btn">
+          <a href="https://github.com/Bsantr/FirstWebsite.git" className="btn">
             <img src={githubIcon} alt="GitHub Icon" className="button-icon" />
             GitHub
           </a>

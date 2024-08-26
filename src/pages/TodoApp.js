@@ -23,7 +23,7 @@ const TodoApp = () => {
             <img src={downloadIcon} alt="Download Icon" className="button-icon" />
             Download
           </a>
-          <a href="https://github.com/your-repo" className="btn">
+          <a href="https://github.com/Bsantr/shootergame/tree/32929dd6c865f86a0507ba90c046cce163c1ed35/ShooterGame" className="btn">
             <img src={githubIcon} alt="GitHub Icon" className="button-icon" />
             GitHub
           </a>

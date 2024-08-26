@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Verwende useNavigate statt useHistory
-import '../styles/LogoSection.css'; // Pfad zur CSS-Datei
+import { useNavigate } from 'react-router-dom';
+import '../styles/LogoSection.css';
 import LogoSectionME from '../assets/LogoSectionME.png';
-import { FaEnvelope, FaLinkedin, FaTwitter } from 'react-icons/fa'; // Import icons from react-icons
+import { FaEnvelope, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 const words = ["Developer", "Student", "Friend"]; // Words to cycle through
 

@@ -4,7 +4,7 @@ import '../styles/Documents.css';
 
 const DocumentsPage = () => {
   const [previewSrc, setPreviewSrc] = useState(null);
-  const navigate = useNavigate(); // Hook für die Navigation
+  const navigate = useNavigate(); // Hook for navigation
 
   const handlePreview = (src) => {
     setPreviewSrc(src);
@@ -15,7 +15,7 @@ const DocumentsPage = () => {
   };
 
   const handleBack = () => {
-    navigate(-1); // Navigation zur vorherigen Seite
+    navigate('/'); // Navigate to the main/home page
   };
 
   return (
@@ -62,7 +62,7 @@ const DocumentsPage = () => {
           </div>
           <div className="document-item">
             <h3>BWD Grades</h3>
-            <p>My grades from semster 1-4</p>
+            <p>My grades from semester 1-4</p>
             <div className="button-group">
               <a href="./ryan_NotenBWD.pdf" className="btn-download" download>Download</a>
               <button 
@@ -82,7 +82,7 @@ const DocumentsPage = () => {
         <div className="document-card">
           <div className="document-item">
             <h3>GIBB Grades</h3>
-            <p>My grade from semster 1-6</p>
+            <p>My grades from semester 1-6</p>
             <div className="button-group">
               <a href="./ryan_NotenGIBB.pdf" className="btn-download" download>Download</a>
               <button 
@@ -154,8 +154,7 @@ const DocumentsPage = () => {
           </div>
           <div className="document-item">
             <h3>ÜK 294</h3>
-            <p>Frontend einer interaktiven Webapplikation realisieren
-            .</p>
+            <p>Frontend einer interaktiven Webapplikation realisieren.</p>
             <div className="button-group">
               <a href="./KNW294_bwd.pdf" className="btn-download" download>Download</a>
               <button 
