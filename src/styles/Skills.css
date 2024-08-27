@@ -42,44 +42,89 @@
 
 .skills-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
+  justify-content: space-between;
 }
 
-.skills-row {
+.skills-box {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  justify-content: center;
+  width: 65%;
+}
+
+.language-skills-box {
+  width: 30%;
+  background: linear-gradient(135deg, #ebf5ee 0%, #c2d3d9 100%);
+  border: 3px solid #283044;
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, transform 0.3s;
+  height: 100%; /* Feste Höhe */
+  min-height: 400px; /* Mindesthöhe für kleinere Bildschirme */
+  max-height: 600px; /* Maximalhöhe */
+  overflow-y: auto; /* Scrollbar für überflüssigen Inhalt */
+}
+
+.language-skills-box h3 {
+  font-size: 1.5rem;
+  color: #283044;
+  margin-bottom: 20px;
+}
+
+.language-skills-box ul {
+  list-style: none;
+  padding-left: 0;
+  text-align: left;
+}
+
+.language-skills-box li {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #555;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  margin: 0;
-  padding: 0;
-  margin-top: 30px;
+}
+
+.language-points {
+  display: flex;
+  gap: 5px;
+}
+
+.filled-circle {
+  color: #4169E1;
+}
+
+.empty-circle {
+  color: #a0a0a0; /* Dunkleres Grau für leere Kreise */
+}
+
+.soft-skills-list {
+  margin-top: 20px;
+}
+
+.soft-skills-list li {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 10px;
+  font-weight: 700;
 }
 
 .skill-item {
   background: linear-gradient(135deg, #ebf5ee 0%, #c2d3d9 100%);
   border: 3px solid #283044;
   border-radius: 15px;
-  padding: 40px;
+  padding: 20px;
   width: 100%;
-  max-width: 1200px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s, transform 0.3s;
   cursor: pointer;
-  margin: 0;
-}
-
-.skill-item p {
-  margin-top: 5px;
-}
-
-.skill-item:hover {
-  background: #79bec7;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
-  transform: scale(1.05);
+  margin-bottom: 20px;
 }
 
 .skill-content {
@@ -143,26 +188,22 @@
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
-  max-width: 400px; /* Feste Breite für eine einheitliche Darstellung */
+  max-width: 400px;
   box-sizing: border-box;
   font-size: 1rem;
 }
 
-/* Kategorie-Icon-Stil */
-/* Anpassungen für Kategorie-Icons */
 .category-icon {
-  margin-left: 10px; /* Abstand zwischen Titel und Icon */
-  color: #283044; /* Farbe des Icons */
-  font-size: 2rem; /* Größeres Icon */
-  vertical-align: middle; /* Vertikale Ausrichtung */
+  margin-left: 10px;
+  color: #283044;
+  font-size: 2rem;
+  vertical-align: middle;
 }
 
-
-/* Progress Bar Styles */
 .progress-bar {
   height: 16px;
   width: 100%;
-  background: #e0e0e0;
+  background: #a0a0a0; /* Dunkleres Grau für leere Bereiche */
   border-radius: 8px;
   margin-top: 5px;
   overflow: hidden;
@@ -172,21 +213,21 @@
 .progress {
   height: 100%;
   background: linear-gradient(to right, #87CEFA, #4169E1);
-  border-radius: 8px 0 0 8px; /* Abgerundete linke Ecken */
-  width: 0; /* Start at 0 width */
-  transition: width 1s ease-out; /* Smooth transition for loading */
+  border-radius: 8px 0 0 8px;
+  width: 0;
+  transition: width 1s ease-out;
   position: absolute;
   top: 0;
   left: 0;
 }
 
 .progress.loading {
-  animation: loadProgress 2s forwards; /* Add loading animation */
+  animation: loadProgress 2s forwards;
 }
 
 .progress-percentage {
   position: absolute;
-  top: -25px; /* Adjust to position percentage text above bar */
+  top: -25px;
   right: 0;
   font-weight: bold;
   font-size: 0.875rem;
@@ -198,7 +239,7 @@
     width: 0%;
   }
   to {
-    width: var(--progress-width); /* Set by inline style */
+    width: var(--progress-width);
   }
 }
 
@@ -220,6 +261,19 @@
 
   .skills-container {
     max-width: 100%;
+    flex-direction: column;
+  }
+
+  .skills-box {
+    width: 100%;
+  }
+
+  .language-skills-box {
+    width: 100%;
+    margin-top: 20px;
+    min-height: 200px;
+    max-height: none; /* Maximale Höhe entfernen */
+    height: auto; /* Höhe an den Inhalt anpassen */
   }
 
   .skill-item {
@@ -227,10 +281,6 @@
     max-width: 100%;
     margin: 0 auto;
     padding: 25px;
-  }
-
-  .skills-row {
-    gap: 15px;
   }
 
   .skill-icon {

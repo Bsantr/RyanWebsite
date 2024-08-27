@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHtml5, faCss3Alt, faJsSquare, faReact, faPhp, faJava, faPython, faNodeJs, faGit, faDocker, faAws, faMicrosoft } from '@fortawesome/free-brands-svg-icons';
-import { faServer, faCodeBranch, faDatabase, faLaptopCode, faTools } from '@fortawesome/free-solid-svg-icons';
+import { faServer, faCodeBranch, faDatabase, faLaptopCode, faTools, faCircle } from '@fortawesome/free-solid-svg-icons';
 import '../styles/Skills.css';
 
 const Skills = () => {
@@ -72,9 +72,9 @@ const Skills = () => {
         progressBars.forEach((bar, index) => {
           setTimeout(() => {
             bar.classList.add('loading');
-          }, index * 100); // Stagger animation slightly
+          }, index * 100);
         });
-      }, 300); // Delay to ensure rendering before animation
+      }, 300);
     } else {
       setOpenSkill(null);
     }
@@ -88,38 +88,85 @@ const Skills = () => {
         giving you a snapshot of what I know and how it fits into the overall picture.
       </p>
       <div className="skills-container">
-        {Object.keys(skillData).map((category) => (
-          <div className="skill-item" key={category} onClick={() => handleSkillClick(category)}>
-            <h3>
-              {category.charAt(0).toUpperCase() + category.slice(1)} Development
-              {categoryIcons[category]}
-            </h3>
-            {openSkill === category && (
-              <div className="skill-content" data-skill={category}>
-                <div className="average-knowledge">
-                  <h4>Average Knowledge</h4>
-                  <div className="progress-bar">
-                    <div className="progress" style={{ '--progress-width': `${averageKnowledge[category]}%` }}></div>
+        <div className="skills-box">
+          {Object.keys(skillData).map((category) => (
+            <div className="skill-item" key={category} onClick={() => handleSkillClick(category)}>
+              <h3>
+                {category.charAt(0).toUpperCase() + category.slice(1)} Development
+                {categoryIcons[category]}
+              </h3>
+              {openSkill === category && (
+                <div className="skill-content" data-skill={category}>
+                  <div className="average-knowledge">
+                    <h4>Average Knowledge</h4>
+                    <div className="progress-bar">
+                      <div className="progress" style={{ '--progress-width': `${averageKnowledge[category]}%` }}></div>
+                    </div>
+                    <p className="skill-text">{skillTexts[category]}</p>
                   </div>
-                  <p className="skill-text">{skillTexts[category]}</p>
-                </div>
-                <div className="skills-list">
-                  {skillData[category].map((skill, index) => (
-                    <div className="skill" key={index}>
-                      {skill.icon}
-                      <div className="skill-details">
-                        <p>{skill.name}</p>
-                        <div className="progress-bar">
-                          <div className="progress" style={{ '--progress-width': skill.proficiency }}></div>
+                  <div className="skills-list">
+                    {skillData[category].map((skill, index) => (
+                      <div className="skill" key={index}>
+                        {skill.icon}
+                        <div className="skill-details">
+                          <p>{skill.name}</p>
+                          <div className="progress-bar">
+                            <div className="progress" style={{ '--progress-width': skill.proficiency }}></div>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-              </div>
-            )}
-          </div>
-        ))}
+              )}
+            </div>
+          ))}
+        </div>
+        <div className="language-skills-box">
+          <h3>Language Skills</h3>
+          <ul>
+            <li>
+              German - Native
+              <span className="language-points">
+                {Array(5).fill(<FontAwesomeIcon icon={faCircle} className="filled-circle" />)}
+              </span>
+            </li>
+            <li>
+              English - Fluent
+              <span className="language-points">
+                {Array(4).fill(<FontAwesomeIcon icon={faCircle} className="filled-circle" />)}
+                {Array(1).fill(<FontAwesomeIcon icon={faCircle} className="empty-circle" />)}
+              </span>
+            </li>
+            <li>
+              Portuguese - Intermediate
+              <span className="language-points">
+                {Array(4).fill(<FontAwesomeIcon icon={faCircle} className="filled-circle" />)}
+                {Array(1).fill(<FontAwesomeIcon icon={faCircle} className="empty-circle" />)}
+              </span>
+            </li>
+            <li>
+              French - Basic
+              <span className="language-points">
+                {Array(3).fill(<FontAwesomeIcon icon={faCircle} className="filled-circle" />)}
+                {Array(2).fill(<FontAwesomeIcon icon={faCircle} className="empty-circle" />)}
+              </span>
+            </li>
+            <li>
+              Spanish - Basic
+              <span className="language-points">
+                {Array(2).fill(<FontAwesomeIcon icon={faCircle} className="filled-circle" />)}
+                {Array(3).fill(<FontAwesomeIcon icon={faCircle} className="empty-circle" />)}
+              </span>
+            </li>
+          </ul>
+          <h3>Soft Skills</h3>
+          <ul className="soft-skills-list">
+            <li>Teamwork</li>
+            <li>Communication</li>
+            <li>Problem-Solving</li>
+          </ul>
+        </div>
       </div>
     </section>
   );

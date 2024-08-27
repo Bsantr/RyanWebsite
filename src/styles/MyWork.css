@@ -1,7 +1,7 @@
 /* Container for the whole section */
 .WorkSection {
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 60px; /* Increased padding for more spacing */
+  padding-bottom: 60px; /* Increased padding for more spacing */
   text-align: center;
   position: relative;
 }
@@ -30,8 +30,8 @@
 
 /* Heading styles */
 .WorkSection h2 {
-  margin-bottom: 40px;
-  font-size: 2.5rem;
+  margin-bottom: 45px; /* Slightly increased margin */
+  font-size: 2.7rem; /* Slightly increased font size */
   color: #283044;
   text-decoration: underline;
   text-decoration-color: #61dafb;
@@ -43,25 +43,25 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 30px;
+  padding: 35px; /* Slightly increased padding */
   border: 3px solid #283044;
   border-radius: 15px;
   background: linear-gradient(135deg, #ebf5ee 0%, #c2d3d9 100%);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  max-width: 800px;
-  margin: 0 auto 30px auto;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Slightly increased shadow */
+  max-width: 850px; /* Slightly increased width */
+  margin: 0 auto 35px auto; /* Slightly increased margin */
   transition: background 0.6s ease, box-shadow 0.6s ease, max-width 0.6s ease;
 }
 
 .work-intro-box:hover {
   background: linear-gradient(135deg, #c2d3d9 0%, #ebf5ee 100%);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.3); /* Slightly increased shadow */
 }
 
 /* Work Intro Text Styles */
 .work-intro {
   margin: 0 auto;
-  font-size: 1.1rem;
+  font-size: 1.2rem; /* Slightly increased font size */
   font-weight: 600;
   color: #283044;
   line-height: 1.6;
@@ -72,14 +72,14 @@
 /* Button to toggle between carousel and all items */
 .show-all-button {
   display: inline-block;
-  margin: 20px auto;
+  margin: 25px auto; /* Slightly increased margin */
   background-color: #61dafb;
   color: #283044;
   border: 2px solid #283044;
   border-radius: 25px;
-  padding: 10px 20px;
+  padding: 12px 25px; /* Slightly increased padding */
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1.1rem; /* Slightly increased font size */
   font-weight: bold;
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   text-align: center;
@@ -96,56 +96,56 @@
   position: relative;
   overflow: hidden;
   width: 100%;
-  max-width: 1000px;
+  max-width: 1100px; /* Slightly increased max width */
   margin: 0 auto;
 }
 
-/* Inneres Container für das Karussell */
+/* Inner container for the carousel */
 .work-carousel-inner {
   display: flex;
   transition: transform 0.3s ease;
   width: 100%;
 }
 
-/* Einzelne Karussell-Elemente */
+/* Individual carousel items */
 .work-item {
-  flex: 0 0 25%;
-  margin: 0 10px;
+  flex: 0 0 27%; /* Slightly increased flex basis */
+  margin: 0 15px; /* Slightly increased margin */
   background-color: #ebf5ee;
   border: 2px solid #283044;
-  border-radius: 8px;
+  border-radius: 10px; /* Slightly increased border radius */
   overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slightly increased shadow */
   transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
-  opacity: 0.9;
+  opacity: 0.95;
   cursor: pointer;
-  transform: scale(0.95);
+  transform: scale(0.97); /* Slightly increased default scale */
 }
 
 .work-item:hover {
-  transform: scale(1); /* Vergrößern des Elements beim Hover */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Schatten verstärken */
+  transform: scale(1.0); /* Slightly increased hover scale */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Slightly increased shadow */
 }
 
 .work-item img {
   width: 100%;
-  height: 120px;
+  height: 140px; /* Slightly increased height */
   object-fit: cover;
 }
 
 .work-text {
-  padding: 10px;
+  padding: 12px; /* Slightly increased padding */
 }
 
 .work-text h3 {
   margin: 0;
-  font-size: 1rem;
+  font-size: 1.1rem; /* Slightly increased font size */
   color: #283044;
 }
 
 .work-text p {
-  margin: 5px 0 0;
-  font-size: 0.9rem;
+  margin: 7px 0 0;
+  font-size: 1rem; /* Slightly increased font size */
   color: #283044;
 }
 
@@ -154,86 +154,84 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(40, 48, 68, 0.8); /* Darker background */
-  color: #61dafb; /* Light blue color for the arrow */
+  background-color: rgba(40, 48, 68, 0.8);
+  color: #61dafb;
   border: none;
   border-radius: 50%;
-  width: 50px; /* Size of the button */
-  height: 50px; /* Size of the button */
+  width: 55px; /* Slightly increased size */
+  height: 55px; /* Slightly increased size */
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 0; /* Hide any default text */
+  font-size: 0;
   z-index: 10;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); /* Slightly increased shadow */
 }
 
-/* Position the buttons outside but close to the carousel */
 .carousel-button.left {
-  left: 10px; /* Position just outside the carousel on the left */
+  left: 10px;
 }
 
 .carousel-button.right {
-  right: 10px; /* Position just outside the carousel on the right */
+  right: 10px;
 }
 
 .carousel-button:hover {
-  background-color: #61dafb; /* Change background color on hover */
-  color: #283044; /* Change arrow color on hover */
+  background-color: #61dafb;
+  color: #283044;
 }
 
 .carousel-button:disabled {
-  background-color: rgba(40, 48, 68, 0.4); /* Softer background when disabled */
-  color: rgba(97, 218, 251, 0.5); /* Softer arrow color when disabled */
+  background-color: rgba(40, 48, 68, 0.4);
+  color: rgba(97, 218, 251, 0.5);
   cursor: default;
 }
 
-/* Custom triangle icons */
 .carousel-button::before {
   content: '';
   display: inline-block;
   width: 0;
   height: 0;
-  border-left: 12px solid #61dafb;
-  border-top: 8px solid transparent;
-  border-bottom: 8px solid transparent;
-  transform: rotate(0deg); /* Default left arrow */
+  border-left: 14px solid #61dafb; /* Slightly increased size */
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  transform: rotate(0deg);
 }
 
 .carousel-button.right::before {
   border-left: none;
-  border-right: 12px solid #61dafb; /* Right arrow */
-  border-top: 8px solid transparent;
-  border-bottom: 8px solid transparent;
+  border-right: 14px solid #61dafb; /* Slightly increased size */
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
 }
 
 .carousel-button:hover::before {
-  border-left-color: #283044; /* Change arrow color on hover */
+  border-left-color: #283044;
 }
 
 .carousel-button.right:hover::before {
-  border-right-color: #283044; /* Change arrow color on hover */
+  border-right-color: #283044;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .show-all-button {
-    display: none; /* Button ausblenden */
+    display: none;
   }
 
   .work-carousel {
-    display: none; /* Karussell ausblenden */
+    display: none;
   }
 
   .work-item {
-    flex: 0 0 50%; /* Zwei Items nebeneinander auf kleineren Bildschirmen */
+    flex: 0 0 50%;
   }
 }
 
 @media (max-width: 480px) {
   .work-item {
-    flex: 0 0 80%; /* Ein Item pro Reihe auf sehr kleinen Bildschirmen */
+    flex: 0 0 80%;
   }
 }
 
@@ -242,106 +240,105 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  gap: 12px; /* Slightly increased gap */
 }
 
 /* Work items in Show All view */
 .show-all .work-item {
   flex: 0 0 calc(33.33% - 20px);
-  margin: 10px;
+  margin: 12px; /* Slightly increased margin */
   background-color: #ebf5ee;
   border: 2px solid #283044;
-  border-radius: 8px;
+  border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
-  opacity: 0.9;
+  opacity: 0.95;
   cursor: pointer;
 }
 
 .show-all .work-item:hover {
-  transform: scale(1.05); /* Vergrößern des Elements beim Hover */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Schatten verstärken */
+  transform: scale(1.07); /* Slightly increased hover scale */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Slightly increased shadow */
 }
 
 .show-all .work-item img {
   width: 100%;
-  height: 100px;
+  height: 120px; /* Slightly increased height */
   object-fit: cover;
 }
 
 .show-all .work-text {
-  padding: 10px;
+  padding: 12px;
 }
 
 .show-all .work-text h3 {
   margin: 0;
-  font-size: 1rem;
+  font-size: 1.1rem; /* Slightly increased font size */
   color: #283044;
 }
 
 .show-all .work-text p {
-  margin: 5px 0 0;
-  font-size: 0.9rem;
+  margin: 7px 0 0;
+  font-size: 1rem; /* Slightly increased font size */
   color: #283044;
 }
 
 /* Responsive adjustments */
 @media (max-width: 1024px) {
   .work-intro-box {
-    max-width: 700px;
+    max-width: 750px;
   }
 }
 
 @media (max-width: 768px) {
   .work-intro-box {
-    max-width: 530px;
-    padding: 20px;
+    max-width: 580px;
+    padding: 25px;
   }
 
   .show-all .work-item {
     flex: 0 0 calc(50% - 15px);
-    margin: 10px;
+    margin: 12px;
   }
 
   .show-all .work-item img {
-    height: 110px;
+    height: 130px; /* Slightly increased height */
   }
 
   .show-all .work-text h3 {
-    font-size: 1.05rem;
-  }
-
-  .show-all .work-text p {
-    font-size: 0.95rem;
-  }
-}
-
-@media (max-width: 480px) {
-
-  .work-intro-box {
-    max-width: 80%; /* Reduziere die maximale Breite */
-    padding: 20px; /* Verringere das Padding */
-      }
-
-  .work-intro {
-    font-size: 0.95rem;
-  }
-
-  .show-all .work-item {
-    flex: 0 0 80%;
-    margin: 15px 0;
-  }
-
-  .show-all .work-item img {
-    height: 130px;
-  }
-
-  .show-all .work-text h3 {
-    font-size: 1.1rem;
+    font-size: 1.15rem; /* Slightly increased font size */
   }
 
   .show-all .work-text p {
     font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .work-intro-box {
+    max-width: 85%;
+    padding: 25px;
+  }
+
+  .work-intro {
+    font-size: 1rem;
+  }
+
+  .show-all .work-item {
+    flex: 0 0 80%;
+    margin: 18px 0;
+  }
+
+  .show-all .work-item img {
+    height: 150px; /* Slightly increased height */
+  }
+
+  .show-all .work-text h3 {
+    font-size: 1.2rem; /* Slightly increased font size */
+  }
+
+  .show-all .work-text p {
+    font-size: 1.05rem; /* Slightly increased font size */
   }
 }

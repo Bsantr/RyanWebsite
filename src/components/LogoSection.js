@@ -4,7 +4,7 @@ import '../styles/LogoSection.css';
 import LogoSectionME from '../assets/LogoSectionME.png';
 import { FaEnvelope, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
-const words = ["Developer", "Student", "Friend"]; // Words to cycle through
+const words = ["Developer", "Student", "Enthusiast"]; // Words to cycle through
 
 const LogoSection = () => {
   const [introText, setIntroText] = useState('');
