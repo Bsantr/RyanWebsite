@@ -60,13 +60,14 @@
   background: linear-gradient(135deg, #ebf5ee 0%, #c2d3d9 100%);
   border: 3px solid #283044;
   border-radius: 15px;
-  padding: 40px;
+  padding: 15px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s, transform 0.3s;
   height: 100%; /* Feste Höhe */
   min-height: 400px; /* Mindesthöhe für kleinere Bildschirme */
   max-height: 600px; /* Maximalhöhe */
-  overflow-y: auto; /* Scrollbar für überflüssigen Inhalt */
+  overflow: auto; /* Scrollbar für überflüssigen Inhalt */
+  box-sizing: border-box; /* Stellen Sie sicher, dass Padding und Border zur Größe der Box gehören */
 }
 
 .language-skills-box h3 {
@@ -124,7 +125,7 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s, max-height 0.5s ease-out;
   cursor: pointer;
-  margin-bottom: 20px;
+  margin-bottom: 20px; /* Abstand nach unten zwischen Skill-Items */
   overflow: hidden;
   max-height: 70px; /* Höhe im geschlossenen Zustand */
 }
@@ -161,6 +162,9 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 35%;
   font-weight: 700;
+  box-sizing: border-box; /* Stellen Sie sicher, dass Padding zur Größe der Box gehört */
+  position: relative; /* Positionieren für Z-Index, falls erforderlich */
+  z-index: 1; /* Stellen Sie sicher, dass diese Box über anderen Elementen liegt */
 }
 
 .average-knowledge h4 {
@@ -272,6 +276,7 @@
     width: 100%;
     margin-bottom: 20px;
     font-weight: 700;
+    box-sizing: border-box; /* Sicherstellen, dass Padding zur Größe der Box gehört */
   }
 
   .average-knowledge h4 {
@@ -324,7 +329,7 @@
 
   .average-knowledge {
     order: 2;
-    margin-top: 20px;
+    margin-top: 20px; /* Abstand nach oben zwischen Average Knowledge und Skill Item */
   }
 
   .skill-details {

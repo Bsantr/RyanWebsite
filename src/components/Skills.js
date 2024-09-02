@@ -19,10 +19,10 @@ const Skills = () => {
   };
 
   const skillTexts = {
-    'frontend': 'My front-end skills include HTML, CSS, and JavaScript, with a focus on building responsive and interactive user interfaces. I’m also skilled in using modern frameworks like React for dynamic web applications.',
+    'frontend': 'I’m experienced in HTML, CSS, and JavaScript for responsive UI, with experience in React for dynamic web applications.',
     'backend': 'I have experience in development with PHP, Java, Python, Node.js, and some C#.',
     'database': 'I am able to manage databases like MariaDB, MongoDB, Redis, MySQL, and SQLite, and I can design and optimize schemas and queries.',
-    'tools': 'I am skilled in using tools and technologies like Git for version control and Docker for containers. Experienced with cloud services such as AWS, Kubernetes, and Azure and more.',
+    'tools': 'I am skilled in using tools and technologies like Git, Docker, and cloud services like AWS and Azure.',
   };
 
   const skillData = {
@@ -51,7 +51,6 @@ const Skills = () => {
       { name: 'Docker', icon: <FontAwesomeIcon icon={faDocker} size="2x" />, proficiency: '80%' },
       { name: 'AWS', icon: <FontAwesomeIcon icon={faAws} size="2x" />, proficiency: '70%' },
       { name: 'Kubernetes', icon: <FontAwesomeIcon icon={faServer} size="2x" />, proficiency: '65%' },
-      { name: 'CI/CD', icon: <FontAwesomeIcon icon={faServer} size="2x" />, proficiency: '65%' },
       { name: 'Azure', icon: <FontAwesomeIcon icon={faMicrosoft} size="2x" />, proficiency: '60%' },
       { name: 'Terraform', icon: <FontAwesomeIcon icon={faServer} size="2x" />, proficiency: '50%' },
     ],
