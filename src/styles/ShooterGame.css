@@ -1,12 +1,10 @@
-/* ShooterGame.css - basierend auf FaceID.css */
-
 :root {
   --primary-color: #00c8ff;
   --secondary-color: #4fa3b8;
   --border-color: #ddd;
   --text-color: #666;
   --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  --frame-color: #283044;
+  --frame-color: #283044; /* Farbe für den Rahmen */
 }
 
 .FaceIDSection {
@@ -27,29 +25,6 @@
   position: relative;
   z-index: 1;
 }
-
-.btn {
-  display: flex;
-  align-items: center;
-  background-color: #61dafb;
-  color: white;
-  padding: 10px 20px; /* Verringere das Padding, um die Größe des Buttons zu reduzieren */
-  border-radius: 5px;
-  text-decoration: none;
-  font-size: 1rem; /* Passe die Schriftgröße an */
-  transition: background-color 0.3s;
-}
-
-.btn:hover {
-  background-color: #4fa3b8;
-}
-
-.button-icon {
-  width: 24px; /* Stelle sicher, dass die Icons die richtige Größe haben */
-  height: 24px;
-  margin-right: 10px;
-}
-
 
 .text-box {
   padding: 2vw;
@@ -77,60 +52,43 @@
   gap: 2vw;
 }
 
-.content-frame {
-  padding: 2vw;
-  border: 3px solid var(--frame-color);
-  border-radius: 15px;
-  background-color: #f0f0f0;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  width: 100%;
-  max-width: 90%;
-  margin: 0 auto 3vh auto;
-}
-
-.content-section {
+.iframe-container-wrapper {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   gap: 2vw;
+  width: 100%;
+  max-width: 1200px; /* Erhöht die maximale Breite des Wrappers */
+  margin: 0 auto;
 }
 
-.pdf-container {
+.iframe-container {
   background-color: #fbfafa;
   border-radius: 8px;
   box-shadow: var(--box-shadow);
   overflow: hidden;
-}
-
-.images-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 3vh;
-  width: calc(50% - 2vw);
-}
-
-.image-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-  flex-direction: column;
-}
-
-.detail-image {
   width: 100%;
-  height: auto;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  box-shadow: var(--box-shadow);
+  max-width: 50%;  /* Stellt sicher, dass die Iframes nebeneinander bleiben */
+  aspect-ratio: 225 / 240; /* Beibehaltung des A4-Verhältnisses */
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
-.image-caption {
-  font-size: 1.2rem;
-  color: var(--text-color);
-  text-align: center;
-  margin-top: 10px;
+.iframe-content {
+  width: 100%;
+  height: 100%;
+  border: none; /* Entfernt den Standardrahmen um das Iframe */
+}
+
+@media (max-width: 1024px) {
+  .iframe-container-wrapper {
+    flex-direction: column; /* Stapelt die Iframes vertikal auf kleineren Bildschirmen */
+    width: 80%; /* Verengt die Breite auf kleineren Bildschirmen */
+    gap: 20px;
+  }
+
+  .iframe-container {
+    max-width: 80%;  /* Macht die Iframes etwas größer für kleinere Bildschirme */
+  }
 }
 
 @media (max-width: 768px) {
@@ -147,30 +105,16 @@
     max-width: 90%;
   }
 
-  .content-section {
-    flex-direction: column;
-    align-items: center;
+  .iframe-container-wrapper {
+    flex-direction: column; /* Stapelt die Iframes vertikal */
+    width: 90%; /* Nutzt die gesamte Breite auf sehr kleinen Bildschirmen */
+    height: 100%;
+    gap: 20px;
   }
 
-  .content-frame {
-    padding: 4vw;
-    max-width: 100%;
-  }
-
-  .pdf-container {
-    width: 80%;
-    height: auto;
-    margin: 0 auto;
-  }
-
-  .images-container {
-    width: 80%;
-    margin-top: 3vh;
-    gap: 4vh;
-  }
-
-  .detail-image {
-    width: 100%;
+  .iframe-container {
+    max-width: 100%;  /* Nutzt die gesamte Breite */
+    margin-bottom: 20px; /* Fügt etwas Abstand zwischen den Iframes hinzu */
   }
 }
 
@@ -184,27 +128,15 @@
     max-width: 100%;
   }
 
-  .content-section {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .content-frame {
-    padding: 6vw;
-    max-width: 100%;
-  }
-
-  .pdf-container {
-    width: 100%;
+  .iframe-container-wrapper {
+    flex-direction: column; /* Stapelt die Iframes vertikal */
+    width: 100%; /* Nutzt die gesamte Breite auf sehr kleinen Bildschirmen */
     height: auto;
+    gap: 20px;
   }
 
-  .images-container {
-    width: 100%;
-  }
-
-  .detail-image {
-    width: 100vw;
-    height: auto;
+  .iframe-container {
+    max-width: 100%;  /* Nutzt die gesamte Breite */
+    margin-bottom: 20px;
   }
 }

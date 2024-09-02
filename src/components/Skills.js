@@ -90,7 +90,7 @@ const Skills = () => {
       <div className="skills-container">
         <div className="skills-box">
           {Object.keys(skillData).map((category) => (
-            <div className="skill-item" key={category} onClick={() => handleSkillClick(category)}>
+            <div className={`skill-item ${openSkill === category ? 'open' : ''}`} key={category} onClick={() => handleSkillClick(category)}>
               <h3>
                 {category.charAt(0).toUpperCase() + category.slice(1)} Development
                 {categoryIcons[category]}

@@ -52,66 +52,45 @@
   gap: 2vw;
 }
 
-.content-frame {
-  padding: 2vw;
-  border: 3px solid var(--frame-color);
-  border-radius: 15px;
-  background-color: #f0f0f0;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  width: 100%;
-  max-width: 90%;
-  margin: 0 auto 3vh auto;
-}
-
-/* PDF und Bilder nebeneinander anordnen */
-.content-section {
+.iframe-container-wrapper {
   display: flex;
   justify-content: space-between;
-  align-items: center; /* Zentriert den Inhalt vertikal */
   gap: 2vw;
+  width: 100%;
+  max-width: 1200px; /* Erhöht die maximale Breite des Wrappers */
+  margin: 0 auto;
 }
 
-/* PDF Container */
-.pdf-container {
+.iframe-container {
   background-color: #fbfafa;
   border-radius: 8px;
   box-shadow: var(--box-shadow);
   overflow: hidden;
-}
-
-/* Images Container */
-.images-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Zentriert die Bilder vertikal */
-  gap: 3vh; /* Abstand zwischen den Bildern */
-  width: calc(50% - 2vw); /* Bilder nehmen die Hälfte der Breite des Containers ein */
-}
-
-.image-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-  flex-direction: column;
-}
-
-.detail-image {
   width: 100%;
-  height: auto;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  box-shadow: var(--box-shadow);
+  max-width: 50%;  /* Stellt sicher, dass die Iframes nebeneinander bleiben */
+  aspect-ratio: 225 / 240; /* Beibehaltung des A4-Verhältnisses */
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
-.image-caption {
-  font-size: 1.2rem;
-  color: var(--text-color);
-  text-align: center;
-  margin-top: 10px;
+.iframe-content {
+  width: 100%;
+  height: 100%;
+  border: none; /* Entfernt den Standardrahmen um das Iframe */
 }
 
-/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .iframe-container-wrapper {
+    flex-direction: column; /* Stapelt die Iframes vertikal auf kleineren Bildschirmen */
+    width: 80%; /* Verengt die Breite auf kleineren Bildschirmen */
+    gap: 20px;
+  }
+
+  .iframe-container {
+    max-width: 80%;  /* Macht die Iframes etwas größer für kleinere Bildschirme */
+  }
+}
+
 @media (max-width: 768px) {
   .FaceIDSection {
     padding: 10px;
@@ -126,30 +105,16 @@
     max-width: 90%;
   }
 
-  .content-section {
-    flex-direction: column;
-    align-items: center;
+  .iframe-container-wrapper {
+    flex-direction: column; /* Stapelt die Iframes vertikal */
+    width: 90%; /* Nutzt die gesamte Breite auf sehr kleinen Bildschirmen */
+    height: 100%;
+    gap: 20px;
   }
 
-  .content-frame {
-    padding: 4vw;
-    max-width: 100%;
-  }
-
-  .pdf-container {
-    width: 80%;
-    height: auto;
-    margin: 0 auto;
-  }
-
-  .images-container {
-    width: 80%;
-    margin-top: 3vh;
-    gap: 4vh; /* Etwas größerer Abstand zwischen Bildern auf kleineren Bildschirmen */
-  }
-
-  .detail-image {
-    width: 100%;
+  .iframe-container {
+    max-width: 100%;  /* Nutzt die gesamte Breite */
+    margin-bottom: 20px; /* Fügt etwas Abstand zwischen den Iframes hinzu */
   }
 }
 
@@ -163,27 +128,15 @@
     max-width: 100%;
   }
 
-  .content-section {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .content-frame {
-    padding: 6vw;
-    max-width: 100%;
-  }
-
-  .pdf-container {
-    width: 100%;
+  .iframe-container-wrapper {
+    flex-direction: column; /* Stapelt die Iframes vertikal */
+    width: 100%; /* Nutzt die gesamte Breite auf sehr kleinen Bildschirmen */
     height: auto;
+    gap: 20px;
   }
 
-  .images-container {
-    width: 100%;
-  }
-
-  .detail-image {
-    width: 100vw;
-    height: auto;
+  .iframe-container {
+    max-width: 100%;  /* Nutzt die gesamte Breite */
+    margin-bottom: 20px;
   }
 }

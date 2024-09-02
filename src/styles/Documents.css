@@ -1,3 +1,4 @@
+/* Container and General Styles */
 .documents-container {
     position: relative;
     background: linear-gradient(135deg, #ebf5ee 0%, #c2d3d9 100%);
@@ -7,7 +8,7 @@
     width: 90%;
     margin: 50px auto;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    text-align: center;
+    text-align: center; /* Center all text */
     font-family: "Courier", monospace;
     box-sizing: border-box;
 }
@@ -15,7 +16,7 @@
 .header {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Platz zwischen Button und Titel */
+    justify-content: space-between;
     position: relative;
 }
 
@@ -38,7 +39,7 @@
 
 .documents-title {
     color: #283044;
-    margin: 0 auto; /* Automatischer Außenabstand für Zentrierung */
+    margin: 0 auto;
     font-size: 3rem;
     text-decoration: underline;
     text-decoration-color: #61dafb;
@@ -50,7 +51,7 @@
 
 .document-section {
     margin-top: 30px;
-    text-align: center;
+    text-align: center; /* Center text */
 }
 
 .document-section h2 {
@@ -60,53 +61,99 @@
     text-decoration: underline;
     text-decoration-color: #61dafb;
     text-decoration-thickness: 2px;
+    text-align: center; /* Center heading */
 }
 
 .document-card {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
+    justify-content: center; /* Center items */
+    gap: 20px;
     margin-top: 20px;
 }
 
+/* Document Item Styles */
 .document-item {
-    background: #ebf5ee;
-    border: 2px solid #283044;
+    background: #ebf5ee; /* Light background for the document card */
+    border: 2px solid #283044; /* Dark border */
     border-radius: 10px;
     padding: 20px;
-    width: calc(33% - 15px);
+    width: calc(33% - 20px);
+    height: auto;
     box-sizing: border-box;
     margin-bottom: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
-}
-
-.document-item:hover {
-    transform: scale(1.03);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center; /* Center align content */
+    text-align: center; /* Center text */
 }
 
 .document-item h3 {
     margin-bottom: 10px;
     color: #283044;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    text-align: center; /* Center title */
+    font-family: "Courier", monospace; /* Monospace font for title */
+    font-weight: bold;
 }
 
 .document-item p {
     margin-bottom: 20px;
     color: #555;
     font-size: 1rem;
+    text-align: center; /* Center paragraph text */
+    line-height: 1.5; /* Improve readability */
+    font-family: "Courier", monospace; /* Monospace font for text */
+    font-weight: normal;
+}
+
+/* Ensure hover effect remains */
+.document-item:hover {
+    transform: scale(1.03);
 }
 
 .button-group {
     display: flex;
     justify-content: center;
+    gap: 10px;
     align-items: center;
-    gap: 15px;
-    flex-wrap: wrap;
 }
 
-.btn-download,
+/* Centered Section */
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px; /* Space below this section */
+}
+
+/* Button Styles */
+.btn-download {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    min-width: 120px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #283044;
+    text-decoration: underline; /* Add underline to Download button */
+    text-decoration-color: white;
+    text-decoration-thickness: 2px;
+}
+
+.btn-download:hover {
+    background-color: #1f2a36;
+}
+
 .btn-preview {
     padding: 10px 20px;
     border-radius: 5px;
@@ -115,25 +162,44 @@
     color: white;
     font-weight: bold;
     transition: background-color 0.3s ease;
-    background-color: #283044;
-}
-
-.btn-download {
-    background: #283044;
-}
-
-.btn-download:hover {
-    background-color: #1f2a36;
-}
-
-.btn-preview {
-    background: #61dafb;
+    min-width: 120px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #61dafb;
 }
 
 .btn-preview:hover {
     background-color: #4bb0db;
 }
 
+/* Spinner Styles */
+.spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-left-color: #ffffff; /* White spinner to match the button text */
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Hide the text while loading */
+.loading .btn-text {
+    visibility: hidden;
+}
+
+/* Modal Styles */
 .modal {
     position: fixed;
     top: 0;
@@ -181,6 +247,7 @@ iframe {
     background-color: #c0392b;
 }
 
+/* Responsive Styles */
 @media (max-width: 768px) {
     .documents-container {
         padding: 20px;
@@ -197,9 +264,9 @@ iframe {
 
     .documents-title {
         font-size: 2rem;
-        text-align: center; /* Text auf kleinen Bildschirmen zentrieren */
+        text-align: center;
         position: static;
-        transform: none; /* Entfernt die absolute Positionierung */
+        transform: none;
         margin-bottom: 20px;
     }
 
@@ -216,6 +283,7 @@ iframe {
         width: 100%;
         margin-bottom: 15px;
         padding: 15px;
+        height: auto;
     }
 
     .document-item h3 {

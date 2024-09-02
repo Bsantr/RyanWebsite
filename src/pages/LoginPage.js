@@ -11,18 +11,33 @@ const LoginPage = () => {
     navigate('/');
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (username === 'bsantr' && password === 'Sml12345') {
-      navigate('/documents');
-    } else {
-      alert('Invalid username or password');
+
+    try {
+      const response = await fetch('http://localhost:3000/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        localStorage.setItem('token', data.token);  // Store the JWT token
+        navigate('/documents');
+      } else {
+        alert('Invalid username or password');
+      }
+    } catch (error) {
+      console.error('Error during login:', error);
+     
     }
   };
 
   return (
     <div className="login-container">
-      {/* Restored Back Button */}
       <div className="back-button-container">
         <button onClick={handleBackClick} className="back-button">
           &larr; Back

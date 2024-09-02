@@ -1,13 +1,98 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Documents.css';
 
 const DocumentsPage = () => {
+  const [files, setFiles] = useState([]);
   const [previewSrc, setPreviewSrc] = useState(null);
-  const navigate = useNavigate(); // Hook for navigation
+  const [loadingDownload, setLoadingDownload] = useState(""); // Separate state for download loading
+  const [loadingPreview, setLoadingPreview] = useState(""); // Separate state for preview loading
+  const [loadingAll, setLoadingAll] = useState(""); // State for "Download All" button
+  const [loadingPreviewAll, setLoadingPreviewAll] = useState(""); // State for "Preview All" button
+  const navigate = useNavigate();
 
-  const handlePreview = (src) => {
-    setPreviewSrc(src);
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+      navigate('/login');
+      return;
+    }
+
+    const fetchFiles = async () => {
+      try {
+        const response = await fetch('http://localhost:3000/api/fetch-files', {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        if (response.status === 401) {
+          navigate('/login');
+        } else if (response.ok) {
+          const data = await response.json();
+          setFiles(data.files);
+        } else {
+          alert('Failed to fetch files');
+        }
+      } catch (error) {
+        console.error('Error fetching files:', error);
+        alert('An error occurred while fetching files. Please try again later.');
+      }
+    };
+
+    fetchFiles();
+  }, [navigate]);
+
+  const handlePreview = async (fileName) => {
+    setLoadingPreview(fileName); // Start loading for preview
+    const token = localStorage.getItem('token');
+    try {
+      const response = await fetch(`http://localhost:3000/api/download-file?file=${fileName}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (response.ok) {
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        setPreviewSrc(url);
+      } else {
+        alert('Failed to preview file');
+      }
+    } catch (error) {
+      console.error('Error previewing file:', error);
+      alert('An error occurred while previewing the file. Please try again later.');
+    } finally {
+      setLoadingPreview(""); // Stop loading for preview
+    }
+  };
+
+  const handlePreviewAll = async () => {
+    setLoadingPreviewAll(true); // Start loading for "Preview All"
+    const token = localStorage.getItem('token');
+    try {
+      // Assuming you generate a PDF or some preview for all files
+      const response = await fetch('http://localhost:3000/api/preview-all-files', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (response.ok) {
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        setPreviewSrc(url);
+      } else {
+        alert('Failed to preview all files');
+      }
+    } catch (error) {
+      console.error('Error previewing all files:', error);
+      alert('An error occurred while previewing all files. Please try again later.');
+    } finally {
+      setLoadingPreviewAll(false); // Stop loading for "Preview All"
+    }
   };
 
   const closePreview = () => {
@@ -15,7 +100,107 @@ const DocumentsPage = () => {
   };
 
   const handleBack = () => {
-    navigate('/'); // Navigate to the main/home page
+    navigate('/');
+  };
+
+  const handleDownload = async (fileName) => {
+    setLoadingDownload(fileName); // Start loading for download
+    const token = localStorage.getItem('token');
+    try {
+      const response = await fetch(`http://localhost:3000/api/download-file?file=${fileName}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (response.ok) {
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', fileName);
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+      } else {
+        alert('Failed to download file');
+      }
+    } catch (error) {
+      console.error('Error downloading file:', error);
+      alert('An error occurred while downloading the file. Please try again later.');
+    } finally {
+      setLoadingDownload(""); // Stop loading for download
+    }
+  };
+
+  const handleDownloadAll = async () => {
+    setLoadingAll(true); // Start loading for "Download All"
+    const token = localStorage.getItem('token');
+    try {
+      const response = await fetch('http://localhost:3000/api/download-all-files', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (response.ok) {
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', 'all_documents.zip');
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+      } else {
+        alert('Failed to download all files');
+      }
+    } catch (error) {
+      console.error('Error downloading all files:', error);
+      alert('An error occurred while downloading all files. Please try again later.');
+    } finally {
+      setLoadingAll(false); // Stop loading for "Download All"
+    }
+  };
+
+  // Mapping file names to display names
+  const displayNames = {
+    "ryan_lebenslauf.pdf": "Resume",
+    "ryan_NotenBWD.pdf": "BWD Grades",
+    "ryan_NotenGIBB.pdf": "GIBB Grades",
+    "ryan_Kursbestätigung.pdf": "Course Confirmation",
+    "KNW187_bwd.pdf": "ICT Workplace Setup",
+    "KNW210_bwd.pdf": "Using Public Cloud",
+    "KNW106_bwd.pdf": "Database Maintenance",
+    "KNW294_bwd.pdf": "Frontend Development",
+    "KNW295_bwd.pdf": "Backend Development",
+    "KNW335_bwd.pdf": "Mobile App Development",
+    "ryan_Abacus1.pdf": "Abacus Finance",
+    "ryan_Abacus2.pdf": "Abacus Accounts Receivable",
+    "ryan_Abacus3.pdf": "Abacus Accounts Payable"
+  };
+
+  const categories = {
+    "bwd": ["ryan_lebenslauf.pdf", "ryan_NotenBWD.pdf"],
+    "gibb": ["ryan_NotenGIBB.pdf", "ryan_Kursbestätigung.pdf"],
+    "ÜK - Überbetriebliche Kurse": ["KNW187_bwd.pdf", "KNW210_bwd.pdf", "KNW106_bwd.pdf", "KNW294_bwd.pdf", "KNW295_bwd.pdf", "KNW335_bwd.pdf"],
+    "certificates": ["ryan_Abacus1.pdf", "ryan_Abacus2.pdf", "ryan_Abacus3.pdf"]
+  };
+
+  const descriptions = {
+    "ryan_lebenslauf.pdf": "My latest resume.",
+    "ryan_NotenBWD.pdf": "My grades from semester 1-4.",
+    "ryan_NotenGIBB.pdf": "My grades from semester 1-6.",
+    "ryan_Kursbestätigung.pdf": "Other important documents.",
+    "KNW187_bwd.pdf": "ICT-Arbeitsplatz mit Betriebssystem in Betrieb nehmen.",
+    "KNW210_bwd.pdf": "Public Cloud für Anwendungen nutzen.",
+    "KNW106_bwd.pdf": "Datenbanken abfragen, bearbeiten und warten.",
+    "KNW294_bwd.pdf": "Frontend einer interaktiven Webapplikation realisieren.",
+    "KNW295_bwd.pdf": "Backend für Applikationen realisieren.",
+    "KNW335_bwd.pdf": "Mobile-Applikation realisieren.",
+    "ryan_Abacus1.pdf": "Abacus Finanzbuchhaltung.",
+    "ryan_Abacus2.pdf": "Abacus Debitorenbuchhaltung.",
+    "ryan_Abacus3.pdf": "Abacus Kreditorenbuchhaltung."
   };
 
   return (
@@ -24,230 +209,69 @@ const DocumentsPage = () => {
         <button className="btn-back" onClick={handleBack}>Back</button>
         <h1 className="documents-title">Documents</h1>
       </div>
-      
-      <div className="document-section">
-        <div className="document-card">
-          <div className="document-item">
-            <h3>Download All</h3>
-            <p>Download all documents in one package.</p>
-            <div className="button-group">
-              <a href="./ryan_All.pdf" className="btn-download" download>Download</a>
-              <button 
-                className="btn-preview" 
-                onClick={() => handlePreview('./ryan_All.pdf')}
-              >
-                Preview
-              </button>
-            </div>
+
+      <div className="document-section centered">
+        <div className="document-item">
+          <h3>Download All</h3>
+          <p>Download all documents in one package.</p>
+          <div className="button-group">
+            <button
+              onClick={handleDownloadAll}
+              className={`btn-download ${loadingAll ? "loading" : ""}`}
+              disabled={loadingAll || loadingDownload || loadingPreview || loadingPreviewAll}
+            >
+              {loadingAll ? <div className="spinner"></div> : <span className="btn-text">Download</span>}
+            </button>
+            <button
+              onClick={handlePreviewAll}
+              className={`btn-preview ${loadingPreviewAll ? "loading" : ""}`}
+              disabled={loadingAll || loadingDownload || loadingPreview || loadingPreviewAll}
+            >
+              {loadingPreviewAll ? <div className="spinner"></div> : <span className="btn-text">Preview</span>}
+            </button>
           </div>
         </div>
       </div>
 
-      <div className="document-section">
-        <h2>bwd</h2>
-        <p>Here are some important documents from BWD</p>
-        <div className="document-card">
-          <div className="document-item">
-            <h3>Resume</h3>
-            <p>My latest resume.</p>
-            <div className="button-group">
-              <a href="./ryan_lebenslauf.pdf" className="btn-download" download>Download</a>
-              <button 
-                className="btn-preview" 
-                onClick={() => handlePreview('./ryan_lebenslauf.pdf')}
-              >
-                Preview
-              </button>
-            </div>
-          </div>
-          <div className="document-item">
-            <h3>BWD Grades</h3>
-            <p>My grades from semester 1-4</p>
-            <div className="button-group">
-              <a href="./ryan_NotenBWD.pdf" className="btn-download" download>Download</a>
-              <button 
-                className="btn-preview" 
-                onClick={() => handlePreview('./ryan_NotenBWD.pdf')}
-              >
-                Preview
-              </button>
-            </div>
+      {Object.keys(categories).map((category) => (
+        <div key={category} className="document-section">
+          <h2>{category}</h2>
+          <p>Here are some important documents from {category === "ÜK" ? "ÜK" : category}.</p>
+          <div className="document-card">
+            {categories[category].map((file) => (
+              <div key={file} className="document-item">
+                <h3>{displayNames[file] || file.replace(".pdf", "")}</h3> {/* Display the mapped name */}
+                <p>{descriptions[file]}</p>
+                <div className="button-group">
+                  <button
+                    onClick={() => handleDownload(file)}
+                    className={`btn-download ${loadingDownload === file ? "loading" : ""}`}
+                    disabled={loadingDownload === file || loadingPreview === file || loadingAll || loadingPreviewAll}
+                  >
+                    {loadingDownload === file ? <div className="spinner"></div> : <span className="btn-text">Download</span>}
+                  </button>
+                  <button
+                    className={`btn-preview ${loadingPreview === file ? "loading" : ""}`}
+                    onClick={() => handlePreview(file)}
+                    disabled={loadingDownload === file || loadingPreview === file || loadingAll || loadingPreviewAll}
+                  >
+                    {loadingPreview === file ? <div className="spinner"></div> : <span className="btn-text">Preview</span>}
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-      </div>
-
-      <div className="document-section">
-        <h2>gibb</h2>
-        <p>Here are some important documents from gibb</p>
-        <div className="document-card">
-          <div className="document-item">
-            <h3>GIBB Grades</h3>
-            <p>My grades from semester 1-6</p>
-            <div className="button-group">
-              <a href="./ryan_NotenGIBB.pdf" className="btn-download" download>Download</a>
-              <button 
-                className="btn-preview" 
-                onClick={() => handlePreview('./ryan_NotenGIBB.pdf')}
-              >
-                Preview
-              </button>
-            </div>
-          </div>
-          <div className="document-item">
-            <h3>GIBB Documents</h3>
-            <p>Other important documents</p>
-            <div className="button-group">
-              <a href="./ryan_Kursbestätigung.pdf" className="btn-download" download>Download</a>
-              <button 
-                className="btn-preview" 
-                onClick={() => handlePreview('./ryan_Kursbestätigung.pdf')}
-              >
-                Preview
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="document-section">
-        <h2>ÜK - Überbetriebliche Kurse</h2>
-        <p>Description or content related to ÜK.</p>
-        <div className="document-card">
-          <div className="document-item">
-            <h3>ÜK 187</h3>
-            <p>ICT-Arbeitsplatz mit Betriebssystem in Betrieb nehmen.</p>
-            <div className="button-group">
-              <a href="./KNW187_bwd.pdf" className="btn-download" download>Download</a>
-              <button 
-                className="btn-preview" 
-                onClick={() => handlePreview('./KNW187_bwd.pdf')}
-              >
-                Preview
-              </button>
-            </div>
-          </div>
-          <div className="document-item">
-            <h3>ÜK 210</h3>
-            <p>Public Cloud für Anwendungen nutzen.</p>
-            <div className="button-group">
-              <a href="./KNW210_bwd.pdf" className="btn-download" download>Download</a>
-              <button 
-                className="btn-preview" 
-                onClick={() => handlePreview('./KNW210_bwd.pdf')}
-              >
-                Preview
-              </button>
-            </div>
-          </div>
-          <div className="document-item">
-            <h3>ÜK 106</h3>
-            <p>Datenbanken abfragen, bearbeiten und warten.</p>
-            <div className="button-group">
-              <a href="./KNW106_bwd.pdf" className="btn-download" download>Download</a>
-              <button 
-                className="btn-preview" 
-                onClick={() => handlePreview('./KNW106_bwd.pdf')}
-              >
-                Preview
-              </button>
-            </div>
-          </div>
-          <div className="document-item">
-            <h3>ÜK 294</h3>
-            <p>Frontend einer interaktiven Webapplikation realisieren.</p>
-            <div className="button-group">
-              <a href="./KNW294_bwd.pdf" className="btn-download" download>Download</a>
-              <button 
-                className="btn-preview" 
-                onClick={() => handlePreview('./KNW294_bwd.pdf')}
-              >
-                Preview
-              </button>
-            </div>
-          </div>
-          <div className="document-item">
-            <h3>ÜK 295</h3>
-            <p>Backend für Applikationen realisieren.</p>
-            <div className="button-group">
-              <a href="./KNW295_bwd.pdf" className="btn-download" download>Download</a>
-              <button 
-                className="btn-preview" 
-                onClick={() => handlePreview('./KNW295_bwd.pdf')}
-              >
-                Preview
-              </button>
-            </div>
-          </div>
-          <div className="document-item">
-            <h3>ÜK 335</h3>
-            <p>Mobile-Applikation realisieren.</p>
-            <div className="button-group">
-              <a href="./KNW335_bwd.pdf" className="btn-download" download>Download</a>
-              <button 
-                className="btn-preview" 
-                onClick={() => handlePreview('./KNW335_bwd.pdf')}
-              >
-                Preview
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="document-section">
-        <h2>Certificates</h2>
-        <p>Description or content related to Certificates.</p>
-        <div className="document-card">
-          <div className="document-item">
-            <h3>Abacus 1</h3>
-            <p>Abacus Finanzbuchhaltung.</p>
-            <div className="button-group">
-              <a href="./ryan_Abacus1.pdf" className="btn-download" download>Download</a>
-              <button 
-                className="btn-preview" 
-                onClick={() => handlePreview('./ryan_Abacus1.pdf')}
-              >
-                Preview
-              </button>
-            </div>
-          </div>
-          <div className="document-item">
-            <h3>Abacus 2</h3>
-            <p>Abacus Debitorenbuchhaltung.</p>
-            <div className="button-group">
-              <a href="./ryan_Abacus2.pdf" className="btn-download" download>Download</a>
-              <button 
-                className="btn-preview" 
-                onClick={() => handlePreview('./ryan_Abacus2.pdf')}
-              >
-                Preview
-              </button>
-            </div>
-          </div>
-          <div className="document-item">
-            <h3>Abacus 3</h3>
-            <p>Abacus Kreditorenbuchhaltung.</p>
-            <div className="button-group">
-              <a href="./ryan_Abacus3.pdf" className="btn-download" download>Download</a>
-              <button 
-                className="btn-preview" 
-                onClick={() => handlePreview('./ryan_Abacus3.pdf')}
-              >
-                Preview
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+      ))}
 
       {previewSrc && (
         <div className="modal" onClick={closePreview}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <iframe 
-              src={previewSrc} 
+            <iframe
+              src={previewSrc}
               title="Document Preview"
-              width="100%" 
-              height="500px" 
+              width="100%"
+              height="500px"
             ></iframe>
             <button className="btn-close" onClick={closePreview}>Close</button>
           </div>

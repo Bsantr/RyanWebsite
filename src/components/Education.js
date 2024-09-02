@@ -4,6 +4,7 @@ import KirchenfeldImage from '../assets/kirchenfeld.jpg';
 import ManuelImage from '../assets/manuel.jpg';
 import NmsImage from '../assets/nms.jpg';
 import BwdImage from '../assets/bwd.jpg';
+import NewSchoolImage from '../assets/gibb.jpg'; // Import your new image
 
 const Education = () => {
   return (
@@ -12,7 +13,17 @@ const Education = () => {
         <h2>Education</h2>
       </div>
       <div className="timeline">
-        <div className="timeline-item left">
+        <div className="timeline-item left"> {/* New education card */}
+          <div className="education-card" style={{ backgroundImage: `url(${NewSchoolImage})` }}>
+            <div className="overlay">
+              <h3>gibb Berufsfachschule</h3>
+              <p>08/2022 - Present</p>
+              <p> Lorrainestrasse</p>
+              <a href="https://www.newschoolwebsite.ch" target="_blank" rel="noopener noreferrer" className="info-button">Info</a>
+            </div>
+          </div>
+        </div>
+        <div className="timeline-item right">
           <div className="education-card" style={{ backgroundImage: `url(${BwdImage})` }}>
             <div className="overlay">
               <h3>BWD IMS</h3>
@@ -22,7 +33,7 @@ const Education = () => {
             </div>
           </div>
         </div>
-        <div className="timeline-item right">
+        <div className="timeline-item left">
           <div className="education-card" style={{ backgroundImage: `url(${NmsImage})` }}>
             <div className="overlay">
               <h3>NMS Bern</h3>
@@ -32,7 +43,7 @@ const Education = () => {
             </div>
           </div>
         </div>
-        <div className="timeline-item left">
+        <div className="timeline-item right">
           <div className="education-card" style={{ backgroundImage: `url(${ManuelImage})` }}>
             <div className="overlay">
               <h3>Secondary school Manuel</h3>
@@ -42,7 +53,7 @@ const Education = () => {
             </div>
           </div>
         </div>
-        <div className="timeline-item right">
+        <div className="timeline-item left">
           <div className="education-card" style={{ backgroundImage: `url(${KirchenfeldImage})` }}>
             <div className="overlay">
               <h3>Primary Kirchenfeld </h3>

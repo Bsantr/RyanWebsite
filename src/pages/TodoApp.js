@@ -1,5 +1,4 @@
 import React from 'react';
-import { Document, Page, pdfjs } from 'react-pdf';
 import '../styles/FaceID.css'; // Verwende dieselbe CSS-Datei wie bei den anderen Apps
 import downloadIcon from '../assets/download.png';
 import githubIcon from '../assets/github.png';
@@ -7,8 +6,6 @@ import githubIcon from '../assets/github.png';
 // Korrektur des Pfads zu den PDFs
 const samplePDF1 = `${process.env.PUBLIC_URL}/shooterGame.pdf`;
 const samplePDF2 = `${process.env.PUBLIC_URL}/shooterGame2.pdf`;
-
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
 const TodoApp = () => {
   return (
@@ -29,16 +26,12 @@ const TodoApp = () => {
           </a>
         </div>
       </div>
-      <div className="pdf-container-wrapper">
-        <div className="pdf-container" style={{ border: '1px solid #ccc' }}>
-          <Document file={samplePDF1} className="pdf-document">
-            <Page pageNumber={1} />
-          </Document>
+      <div className="iframe-container-wrapper">
+        <div className="iframe-container" style={{ border: '1px solid #ccc' }}>
+          <iframe src={samplePDF1} title="First PDF" className="iframe-content"></iframe>
         </div>
-        <div className="pdf-container" style={{ border: '1px solid #ccc' }}>
-          <Document file={samplePDF2} className="pdf-document">
-            <Page pageNumber={1} />
-          </Document>
+        <div className="iframe-container" style={{ border: '1px solid #ccc' }}>
+          <iframe src={samplePDF2} title="Second PDF" className="iframe-content"></iframe>
         </div>
       </div>
     </div>

@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { Document, Page, pdfjs } from 'react-pdf';
+import React from 'react';
 import '../styles/FaceID.css'; // Importiert die angepasste CSS-Datei
 import downloadIcon from '../assets/download.png';
 import githubIcon from '../assets/github.png';
@@ -8,9 +7,6 @@ import githubIcon from '../assets/github.png';
 const samplePDF1 = `${process.env.PUBLIC_URL}/faceID.pdf`;
 // Korrektur des Pfads zum zweiten PDF
 const samplePDF2 = `${process.env.PUBLIC_URL}/faceID2.pdf`; // Füge den Pfad zum zweiten PDF hinzu
-
-// Import the worker from pdfjs-dist
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
 const FaceID = () => {
   return (
@@ -31,16 +27,12 @@ const FaceID = () => {
           </a>
         </div>
       </div>
-      <div className="pdf-container-wrapper">
-        <div className="pdf-container" style={{ border: '1px solid #ccc' }}>
-          <Document file={samplePDF1} className="pdf-document">
-            <Page pageNumber={1} />
-          </Document>
+      <div className="iframe-container-wrapper">
+        <div className="iframe-container" style={{ border: '1px solid #ccc' }}>
+          <iframe src={samplePDF1} title="First PDF" className="iframe-content"></iframe>
         </div>
-        <div className="pdf-container" style={{ border: '1px solid #ccc' }}>
-          <Document file={samplePDF2} className="pdf-document">
-            <Page pageNumber={1} />
-          </Document>
+        <div className="iframe-container" style={{ border: '1px solid #ccc' }}>
+          <iframe src={samplePDF2} title="Second PDF" className="iframe-content"></iframe>
         </div>
       </div>
     </div>
