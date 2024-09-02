@@ -56,16 +56,15 @@
 }
 
 .language-skills-box {
-  width: 30%;
+  width: 45%;
   background: linear-gradient(135deg, #ebf5ee 0%, #c2d3d9 100%);
   border: 3px solid #283044;
   border-radius: 15px;
+  margin-left: 15px;
   padding: 15px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s, transform 0.3s;
-  height: 100%; /* Feste Höhe */
-  min-height: 400px; /* Mindesthöhe für kleinere Bildschirme */
-  max-height: 600px; /* Maximalhöhe */
+  height: 100%; /* Feste Höhe */  
   overflow: auto; /* Scrollbar für überflüssigen Inhalt */
   box-sizing: border-box; /* Stellen Sie sicher, dass Padding und Border zur Größe der Box gehören */
 }
@@ -300,7 +299,7 @@
   .language-skills-box {
     width: 100%;
     margin-top: 20px;
-    min-height: 200px;
+    
     max-height: none; /* Maximale Höhe entfernen */
     height: auto; /* Höhe an den Inhalt anpassen */
     padding: 20px; /* Padding reduzieren für kleinere Bildschirme */
