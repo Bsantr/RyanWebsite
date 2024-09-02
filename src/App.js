@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { Helmet } from 'react-helmet';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import LogoSection from './components/LogoSection';
 import AboutMe from './components/AboutMe';
 import Education from './components/Education';
-import Skills from './components/Skills'; 
+import Skills from './components/Skills';
 import MyWork from './components/MyWork';
 import FaceID from './pages/FaceID';
 import CalendarApp from './pages/CalendarApp';
@@ -14,11 +15,11 @@ import TodoApp from './pages/TodoApp';
 import ShooterGame from './pages/ShooterGame';
 import LoginPage from './pages/LoginPage';
 import Documents from './pages/Documents';
-import Footer from './components/Footer'; 
+import Footer from './components/Footer';
 import './styles/App.css';
 
 const Home = () => {
-  useEffect(() => {
+  React.useEffect(() => {
     const fadeIns = document.querySelectorAll('.fade-in');
 
     const handleScroll = () => {
@@ -31,7 +32,7 @@ const Home = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial check
+    handleScroll();
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -89,6 +90,10 @@ const App = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Ryan's Portfolio</title>
+        <meta name="description" content="Ryan's Portfolio showcasing projects, skills, and work experience." />
+      </Helmet>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/faceid" element={<ProjectLayout><FaceID /></ProjectLayout>} />
