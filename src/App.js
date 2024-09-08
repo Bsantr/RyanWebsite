@@ -75,7 +75,7 @@ const ProjectLayout = ({ children }) => {
       {/* Conditionally render back button */}
       {!noBackButtonPaths.includes(location.pathname) && (
         <button onClick={handleBackClick} className="back-button">
-          &larr; Back
+          Back {/* Entferne den Pfeil hier */}
         </button>
       )}
       {children}

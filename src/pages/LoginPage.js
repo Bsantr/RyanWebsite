@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../styles/LoginPage.css';
+import '../styles/LoginPage.css'; // Ensure this path is correct
 
 const LoginPage = () => {
   const [username, setUsername] = useState('');
@@ -32,17 +32,14 @@ const LoginPage = () => {
       }
     } catch (error) {
       console.error('Error during login:', error);
-     
     }
   };
 
   return (
     <div className="login-container">
-      <div className="back-button-container">
-        <button onClick={handleBackClick} className="back-button">
-          &larr; Back
-        </button>
-      </div>
+      <button onClick={handleBackClick} className="btn-back">
+        Back
+      </button>
       <h1>Login</h1>
       <form className="login-form" onSubmit={handleSubmit}>
         <label htmlFor="username">Username:</label>

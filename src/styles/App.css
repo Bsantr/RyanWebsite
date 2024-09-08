@@ -58,23 +58,39 @@ body {
 }
 
 .back-button {
-  background-color: #61dafb;
-  border: none;
-  color: #282c34;
-  padding: 10px 20px;
-  text-align: center;
+  color: white;
+  background-color: var(--frame-color);
   text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 10px;
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: 2px solid var(--frame-color);
   cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  min-width: 120px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 10px; /* Setzt den Abstand zum oberen Rand */
+  left: 20px; /* Fügt einen Abstand von 20px vom linken Rand hinzu */
+  z-index: 100;
+}
+
+/* Entfernt das Pfeilsymbol (falls es ein Icon oder Pseudoelement ist) */
+.back-button::before {
+  content: none; /* Verhindert die Anzeige von Pseudoelementen wie Icons */
 }
 
 .back-button:hover {
-  background-color: #21a1f1;
+  background-color: white;
+  color: var(--frame-color);
+  border: 2px solid var(--frame-color);
+  transform: scale(1.05);
 }
+
+
 
 /* Fade-in Effekt */
 .fade-in {

@@ -60,7 +60,8 @@
   background: linear-gradient(135deg, #ebf5ee 0%, #c2d3d9 100%);
   border: 3px solid #283044;
   border-radius: 15px;
-  margin-left: 15px;
+  margin-left: 20px;
+  margin-right: 20px;
   padding: 15px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s, transform 0.3s;
@@ -287,9 +288,15 @@
   }
 
   .skills-container {
-    max-width: 100%;
+    display: flex;
     flex-direction: column;
+    align-items: center; /* Zentriert die Kinder-Elemente horizontal */
+    justify-content: center; /* Zentriert die Kinder-Elemente vertikal */
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
   }
+  
 
   .skills-box {
     width: 100%;
@@ -299,11 +306,16 @@
   .language-skills-box {
     width: 100%;
     margin-top: 20px;
-    
-    max-height: none; /* Maximale Höhe entfernen */
-    height: auto; /* Höhe an den Inhalt anpassen */
-    padding: 20px; /* Padding reduzieren für kleinere Bildschirme */
+    max-height: none;
+    height: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Zentriert die Kinder-Elemente horizontal */
+    justify-content: center; /* Zentriert die Kinder-Elemente vertikal */
+    box-sizing: border-box; /* Stellen Sie sicher, dass Padding zur Größe der Box gehört */
   }
+  
 
   .skill-item {
     width: 100%;

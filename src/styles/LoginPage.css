@@ -1,44 +1,59 @@
+/* Container and General Styles */
 .login-container {
-  background-color: #ebf5ee;
+  position: relative; /* Ensure the container is the reference for absolute positioning */
+  background: linear-gradient(135deg, #ebf5ee 0%, #c2d3d9 100%);
   border: 3px solid #283044;
   border-radius: 15px;
-  padding: 50px; /* Increased padding for a larger form */
-  max-width: 500px; /* Increased max-width */
+  padding: 50px;
+  max-width: 500px;
   margin: 50px auto;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   text-align: center;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier", monospace;
+  box-sizing: border-box;
 }
 
-.back-button-container {
-  text-align: left;
-  margin-bottom: 20px;
+/* Back Button Styles */
+.btn-back {
+  position: fixed; /* Fixed position to keep it visible on screen */
+  top: 10px; /* Small top margin */
+  left: 10px; /* Small left margin */
+  padding: 8px 16px; /* Adjust padding for a balanced look */
+  border-radius: 30px;
+  border: 2px solid #283044;
+  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  min-width: 10px; /* Ensure it's large enough to be clickable */
+  display: inline-flex;
+  align-items: left;
+  justify-content: left;
+  text-decoration: none;
+  color: white;
+  background-color: #283044;
+  font-size: 0.9rem;
+  z-index: 1000; /* Ensure it's on top of other elements */
 }
 
-.back-button {
-  background-color: #61dafb;
+.btn-back:hover {
+  background-color: white;
   color: #283044;
   border: 2px solid #283044;
-  border-radius: 25px;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: bold;
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-  margin: 0;
+  transform: scale(1.05);
 }
 
-.back-button:hover {
-  background-color: #283044;
-  color: #61dafb;
-  border-color: #61dafb;
-}
-
+/* Heading Styles */
 h1 {
   color: #283044;
   margin-bottom: 30px;
+  font-size: 3rem;
+  text-decoration: underline;
+  text-decoration-color: #61dafb;
+  text-decoration-thickness: 3px;
 }
 
+/* Form Styles */
 .login-form label {
   display: block;
   margin-bottom: 5px;
@@ -48,28 +63,68 @@ h1 {
 
 .login-form input {
   width: 100%;
-  padding: 10px; /* Slightly larger input fields */
+  padding: 10px;
   margin-bottom: 20px;
   border: 2px solid #283044;
   border-radius: 5px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier", monospace;
 }
 
+/* Login Button Styles */
 .login-form button {
-  background-color: #61dafb;
-  color: #283044;
-  border: 2px solid #283044;
-  border-radius: 25px;
-  padding: 12px 20px; /* Slightly larger button */
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: 2px solid #61dafb;
   cursor: pointer;
-  font-size: 1rem;
+  color: white;
   font-weight: bold;
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  min-width: 120px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #61dafb;
+  text-decoration: underline;
+  text-decoration-color: #61dafb;
+  text-decoration-thickness: 2px;
   width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
 }
 
 .login-form button:hover {
-  background-color: #283044;
-  color: #61dafb;
-  border-color: #61dafb;
+  background-color: #4bb0db;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .login-container {
+    padding: 20px;
+    width: 90%;
+    margin: 20px auto;
+    box-shadow: none;
+    border-radius: 5px;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .login-form button {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .btn-back {
+    top: 10px; /* Keep small margin from the top edge */
+    left: 10px; /* Keep small margin from the left edge */
+    padding: 4px 8px; /* Smaller padding for smaller screens */
+    min-width: 70px; /* Smaller min-width for smaller screens */
+    font-size: 0.7rem; /* Smaller font size */
+    border-radius: 20px; /* Smaller border-radius */
+  }
 }

@@ -83,6 +83,7 @@ const MyWork = () => {
   };
 
   const handleCardClick = (path) => {
+    window.scrollTo(0, 0); // Scrollt nach oben
     navigate(path);
   };
 

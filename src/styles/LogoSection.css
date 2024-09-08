@@ -108,6 +108,7 @@
 .more-button:hover {
   background-color: white;
   color: #283044;
+  transform: scale(1.02); /* Leichte Vergrößerung */
 }
 
 .centered-box {

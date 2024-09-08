@@ -9,6 +9,8 @@ const DocumentsPage = () => {
   const [loadingPreview, setLoadingPreview] = useState(""); // Separate state for preview loading
   const [loadingAll, setLoadingAll] = useState(""); // State for "Download All" button
   const [loadingPreviewAll, setLoadingPreviewAll] = useState(""); // State for "Preview All" button
+  const [modalOpen, setModalOpen] = useState(false);
+  const [currentPreviewUrl, setCurrentPreviewUrl] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -57,7 +59,8 @@ const DocumentsPage = () => {
       if (response.ok) {
         const blob = await response.blob();
         const url = window.URL.createObjectURL(blob);
-        setPreviewSrc(url);
+        setCurrentPreviewUrl(url);
+        setModalOpen(true);
       } else {
         alert('Failed to preview file');
       }
@@ -73,7 +76,6 @@ const DocumentsPage = () => {
     setLoadingPreviewAll(true); // Start loading for "Preview All"
     const token = localStorage.getItem('token');
     try {
-      // Assuming you generate a PDF or some preview for all files
       const response = await fetch('http://localhost:3000/api/preview-all-files', {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -83,7 +85,8 @@ const DocumentsPage = () => {
       if (response.ok) {
         const blob = await response.blob();
         const url = window.URL.createObjectURL(blob);
-        setPreviewSrc(url);
+        setCurrentPreviewUrl(url);
+        setModalOpen(true);
       } else {
         alert('Failed to preview all files');
       }
@@ -96,7 +99,8 @@ const DocumentsPage = () => {
   };
 
   const closePreview = () => {
-    setPreviewSrc(null);
+    setModalOpen(false);
+    setCurrentPreviewUrl("");
   };
 
   const handleBack = () => {
@@ -148,7 +152,7 @@ const DocumentsPage = () => {
         const url = window.URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = url;
-        link.setAttribute('download', 'all_documents.zip');
+        link.setAttribute('download', 'ryan_All.pdf');
         document.body.appendChild(link);
         link.click();
         link.remove();
@@ -169,12 +173,12 @@ const DocumentsPage = () => {
     "ryan_NotenBWD.pdf": "BWD Grades",
     "ryan_NotenGIBB.pdf": "GIBB Grades",
     "ryan_Kursbestätigung.pdf": "Course Confirmation",
-    "KNW187_bwd.pdf": "ICT Workplace Setup",
-    "KNW210_bwd.pdf": "Using Public Cloud",
-    "KNW106_bwd.pdf": "Database Maintenance",
-    "KNW294_bwd.pdf": "Frontend Development",
-    "KNW295_bwd.pdf": "Backend Development",
-    "KNW335_bwd.pdf": "Mobile App Development",
+    "KNW187_bwd.pdf": "ÜK187",
+    "KNW210_bwd.pdf": "ÜK210",
+    "KNW106_bwd.pdf": "ÜK106",
+    "KNW294_bwd.pdf": "ÜK294",
+    "KNW295_bwd.pdf": "ÜK295",
+    "KNW335_bwd.pdf": "ÜK335",
     "ryan_Abacus1.pdf": "Abacus Finance",
     "ryan_Abacus2.pdf": "Abacus Accounts Receivable",
     "ryan_Abacus3.pdf": "Abacus Accounts Payable"
@@ -190,7 +194,7 @@ const DocumentsPage = () => {
   const descriptions = {
     "ryan_lebenslauf.pdf": "My latest resume.",
     "ryan_NotenBWD.pdf": "My grades from semester 1-4.",
-    "ryan_NotenGIBB.pdf": "My grades from semester 1-6.",
+    "ryan_NotenGIBB.pdf": "My grades from semester 1-4.",
     "ryan_Kursbestätigung.pdf": "Other important documents.",
     "KNW187_bwd.pdf": "ICT-Arbeitsplatz mit Betriebssystem in Betrieb nehmen.",
     "KNW210_bwd.pdf": "Public Cloud für Anwendungen nutzen.",
@@ -236,7 +240,7 @@ const DocumentsPage = () => {
       {Object.keys(categories).map((category) => (
         <div key={category} className="document-section">
           <h2>{category}</h2>
-          <p>Here are some important documents from {category === "ÜK" ? "ÜK" : category}.</p>
+          <p>Here are important documents from {category === "ÜK" ? "ÜK" : category}.</p>
           <div className="document-card">
             {categories[category].map((file) => (
               <div key={file} className="document-item">
@@ -264,11 +268,11 @@ const DocumentsPage = () => {
         </div>
       ))}
 
-      {previewSrc && (
+      {modalOpen && (
         <div className="modal" onClick={closePreview}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <iframe
-              src={previewSrc}
+              src={currentPreviewUrl}
               title="Document Preview"
               width="100%"
               height="500px"
