@@ -22,6 +22,7 @@ const LoginPage = () => {
         },
         body: JSON.stringify({ username, password }),
       });
+      
 
       if (response.ok) {
         const data = await response.json();
