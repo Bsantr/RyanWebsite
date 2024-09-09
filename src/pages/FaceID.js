@@ -6,7 +6,7 @@ import { faDownload, faPencilAlt, faCamera, faUserLock } from '@fortawesome/free
 import { faGithub } from '@fortawesome/free-brands-svg-icons'; // GitHub-Icon
 
 // Korrektur des Pfads zu den PDFs
-const samplePDF1 = `${process.env.PUBLIC_URL}/faceID.pdf`;
+const samplePDF1 = `${process.env.PUBLIC_URL}/FaceID.pdf`;
 const samplePDF2 = `${process.env.PUBLIC_URL}/faceID2.pdf`;
 
 Modal.setAppElement('#root'); // Für Accessibility
