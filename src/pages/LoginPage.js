@@ -15,7 +15,7 @@ const LoginPage = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('https://ryanvonmay.com/documents', { // Verwende die vollständige URL deiner gehosteten API
+      const response = await fetch('https://nodejs-serverless-function-express-three-liart.vercel.app/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -23,7 +23,7 @@ const DocumentsPage = () => {
 
     const fetchFiles = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/fetch-files', {
+        const response = await fetch('https://nodejs-serverless-function-express-three-liart.vercel.app/api/fetch-files', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -50,7 +50,7 @@ const DocumentsPage = () => {
     setLoadingPreview(fileName); // Start loading for preview
     const token = localStorage.getItem('token');
     try {
-      const response = await fetch(`http://localhost:3000/api/download-file?file=${fileName}`, {
+      const response = await fetch(`https://nodejs-serverless-function-express-three-liart.vercel.app/api/download-file?file=${fileName}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -76,7 +76,7 @@ const DocumentsPage = () => {
     setLoadingPreviewAll(true); // Start loading for "Preview All"
     const token = localStorage.getItem('token');
     try {
-      const response = await fetch('http://localhost:3000/api/preview-all-files', {
+      const response = await fetch('https://nodejs-serverless-function-express-three-liart.vercel.app/api/preview-all-files', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -111,7 +111,7 @@ const DocumentsPage = () => {
     setLoadingDownload(fileName); // Start loading for download
     const token = localStorage.getItem('token');
     try {
-      const response = await fetch(`http://localhost:3000/api/download-file?file=${fileName}`, {
+      const response = await fetch(`https://nodejs-serverless-function-express-three-liart.vercel.app/api/download-file?file=${fileName}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -141,7 +141,7 @@ const DocumentsPage = () => {
     setLoadingAll(true); // Start loading for "Download All"
     const token = localStorage.getItem('token');
     try {
-      const response = await fetch('http://localhost:3000/api/download-all-files', {
+      const response = await fetch('https://nodejs-serverless-function-express-three-liart.vercel.app/api/download-all-files', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
