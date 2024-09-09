@@ -15,16 +15,13 @@ const LoginPage = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('/api/login', {
+      const response = await fetch('https://ryanvonmay.com/api/login', { // Verwende die vollständige URL deiner gehosteten API
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ username, password }),
       });
-      
-        
-      
 
       if (response.ok) {
         const data = await response.json();
