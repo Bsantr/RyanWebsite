@@ -85,8 +85,8 @@ const DocumentsPage = () => {
       if (response.ok) {
         const blob = await response.blob();
         const url = window.URL.createObjectURL(blob);
-        setCurrentPreviewUrl(url);
-        setModalOpen(true);
+        setCurrentPreviewUrl(url); // Correctly set the preview URL
+        setModalOpen(true); // Open the modal with the preview
       } else {
         alert('Failed to preview all files');
       }
@@ -152,7 +152,7 @@ const DocumentsPage = () => {
         const url = window.URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = url;
-        link.setAttribute('download', 'ryan_All.pdf');
+        link.setAttribute('download', 'ryan_All.pdf'); // Ensuring correct file name
         document.body.appendChild(link);
         link.click();
         link.remove();
@@ -172,7 +172,7 @@ const DocumentsPage = () => {
     "ryan_lebenslauf.pdf": "Resume",
     "ryan_NotenBWD.pdf": "BWD Grades",
     "ryan_NotenGIBB.pdf": "GIBB Grades",
-    "ryan_Kursbestätigung.pdf": "Course Confirmation",
+    "ryan_Kursbestätigung.pdf": "Course Confirmation", // Added display name for "ryan_Kursbestätigung.pdf"
     "KNW187_bwd.pdf": "ÜK187",
     "KNW210_bwd.pdf": "ÜK210",
     "KNW106_bwd.pdf": "ÜK106",
@@ -186,7 +186,7 @@ const DocumentsPage = () => {
 
   const categories = {
     "bwd": ["ryan_lebenslauf.pdf", "ryan_NotenBWD.pdf"],
-    "gibb": ["ryan_NotenGIBB.pdf", "ryan_Kursbestätigung.pdf"],
+    "gibb": ["ryan_NotenGIBB.pdf", "ryan_Kursbestätigung.pdf"], // Added "ryan_Kursbestätigung.pdf" to GIBB category
     "ÜK - Überbetriebliche Kurse": ["KNW187_bwd.pdf", "KNW210_bwd.pdf", "KNW106_bwd.pdf", "KNW294_bwd.pdf", "KNW295_bwd.pdf", "KNW335_bwd.pdf"],
     "certificates": ["ryan_Abacus1.pdf", "ryan_Abacus2.pdf", "ryan_Abacus3.pdf"]
   };
@@ -195,16 +195,16 @@ const DocumentsPage = () => {
     "ryan_lebenslauf.pdf": "My latest resume.",
     "ryan_NotenBWD.pdf": "My grades from semester 1-4.",
     "ryan_NotenGIBB.pdf": "My grades from semester 1-4.",
-    "ryan_Kursbestätigung.pdf": "Other important documents.",
-    "KNW187_bwd.pdf": "ICT-Arbeitsplatz mit Betriebssystem in Betrieb nehmen.",
-    "KNW210_bwd.pdf": "Public Cloud für Anwendungen nutzen.",
-    "KNW106_bwd.pdf": "Datenbanken abfragen, bearbeiten und warten.",
-    "KNW294_bwd.pdf": "Frontend einer interaktiven Webapplikation realisieren.",
-    "KNW295_bwd.pdf": "Backend für Applikationen realisieren.",
-    "KNW335_bwd.pdf": "Mobile-Applikation realisieren.",
-    "ryan_Abacus1.pdf": "Abacus Finanzbuchhaltung.",
-    "ryan_Abacus2.pdf": "Abacus Debitorenbuchhaltung.",
-    "ryan_Abacus3.pdf": "Abacus Kreditorenbuchhaltung."
+    "ryan_Kursbestätigung.pdf": "Other important documents.", // Added description for "ryan_Kursbestätigung.pdf"
+    "KNW187_bwd.pdf": "''ICT-Arbeitsplatz mit Betriebssystem in Betrieb nehmen.''",
+    "KNW210_bwd.pdf": "''Public Cloud für Anwendungen nutzen''.",
+    "KNW106_bwd.pdf": "''Datenbanken abfragen, bearbeiten und warten.''",
+    "KNW294_bwd.pdf": "''Frontend einer interaktiven Webapplikation realisieren.''",
+    "KNW295_bwd.pdf": "''Backend für Applikationen realisieren.''",
+    "KNW335_bwd.pdf": "''Mobile-Applikation realisieren.'s'",
+    "ryan_Abacus1.pdf": "''Abacus Finanzbuchhaltung.''",
+    "ryan_Abacus2.pdf": "''Abacus Debitorenbuchhaltung.''",
+    "ryan_Abacus3.pdf": "''Abacus Kreditorenbuchhaltung.''"
   };
 
   return (

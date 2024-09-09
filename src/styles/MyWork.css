@@ -69,21 +69,7 @@
   text-align: center;
 }
 
-/* Button to toggle between carousel and all items */
-.show-all-button {
-  display: inline-block;
-  margin: 25px auto; /* Slightly increased margin */
-  background-color: #61dafb;
-  color: #283044;
-  border: 2px solid #283044;
-  border-radius: 25px;
-  padding: 12px 25px; /* Slightly increased padding */
-  cursor: pointer;
-  font-size: 1.1rem; /* Slightly increased font size */
-  font-weight: bold;
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-  text-align: center;
-}
+
 
 .show-all-button:hover {
   background-color: #283044;
@@ -196,7 +182,7 @@
   border-left: 14px solid #61dafb; /* Slightly increased size */
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
-  transform: rotate(0deg);
+  transform: rotate(180deg);
 }
 
 .carousel-button.right::before {

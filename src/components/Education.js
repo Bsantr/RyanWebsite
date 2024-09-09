@@ -19,7 +19,7 @@ const Education = () => {
               <h3>gibb Berufsfachschule</h3>
               <p>08/2022 - Present</p>
               <p> Lorrainestrasse</p>
-              <a href="https://www.newschoolwebsite.ch" target="_blank" rel="noopener noreferrer" className="info-button">Info</a>
+              <a href="https://www.gibb.ch" target="_blank" rel="noopener noreferrer" className="info-button">Info</a>
             </div>
           </div>
         </div>
