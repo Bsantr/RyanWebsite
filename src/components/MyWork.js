@@ -101,7 +101,7 @@ const MyWork = () => {
       {!isMobile ? (
         <div className="work-carousel">
           <button className="carousel-button left" onClick={handlePrev} disabled={isAnimating}>
-            &larr;
+            &rarr;
           </button>
           <div className="work-carousel-inner" ref={carouselRef} style={{ display: 'flex', transition: 'transform 0.6s ease' }}>
             {infiniteProjects.map((project, index) => (
@@ -120,7 +120,7 @@ const MyWork = () => {
             ))}
           </div>
           <button className="carousel-button right" onClick={handleNext} disabled={isAnimating}>
-            &rarr;
+            &larr;
           </button>
         </div>
       ) : (
