@@ -22,7 +22,7 @@ const AboutMe = () => {
               </div>
               <div className="about-me-text">
                 <p><strong>Introduction</strong></p>
-                <p>Hi, I'm Ryan Santos von May, I was born 2005 in Brazil. I currently live in Switzerland, where I've completed my entire school journey. I'm a creative, active, and happy person who enjoys a wide range of activities and quickly develops a fascination for new things.</p>
+                <p>Hi, I'm Ryan Santos von May, I was born 2005 in Brazil. I  live in Switzerland, where I've completed my entire school journey. I'm a creative, active, and happy person who enjoys a wide range of activities and quickly develops a fascination for new things.</p>
               </div>
             </div>
           </div>
