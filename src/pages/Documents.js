@@ -12,8 +12,6 @@ const DocumentsPage = () => {
   const [currentPreviewUrl, setCurrentPreviewUrl] = useState("");
   const navigate = useNavigate();
 
-  const proxyUrl = 'https://cors-anywhere.herokuapp.com/'; // Temporary CORS proxy
-
   useEffect(() => {
     const token = localStorage.getItem('token');
 
@@ -24,7 +22,7 @@ const DocumentsPage = () => {
 
     const fetchFiles = async () => {
       try {
-        const response = await fetch(`${proxyUrl}https://nodejs-serverless-function-express-three-liart.vercel.app/api/fetch-files`, {
+        const response = await fetch('https://nodejs-serverless-function-express-three-liart.vercel.app/api/fetch-files', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -51,7 +49,7 @@ const DocumentsPage = () => {
     setLoadingPreview(fileName);
     const token = localStorage.getItem('token');
     try {
-      const response = await fetch(`${proxyUrl}https://nodejs-serverless-function-express-three-liart.vercel.app/api/download-file?file=${fileName}`, {
+      const response = await fetch(`https://nodejs-serverless-function-express-three-liart.vercel.app/api/download-file?file=${fileName}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -79,7 +77,7 @@ const DocumentsPage = () => {
     const token = localStorage.getItem('token');
 
     try {
-      const response = await fetch(`${proxyUrl}https://nodejs-serverless-function-express-three-liart.vercel.app/api/download-file?file=${fileName}`, {
+      const response = await fetch(`https://nodejs-serverless-function-express-three-liart.vercel.app/api/download-file?file=${fileName}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -107,7 +105,7 @@ const DocumentsPage = () => {
     const token = localStorage.getItem('token');
 
     try {
-      const response = await fetch(`${proxyUrl}https://nodejs-serverless-function-express-three-liart.vercel.app/api/download-file?file=${fileName}`, {
+      const response = await fetch(`https://nodejs-serverless-function-express-three-liart.vercel.app/api/download-file?file=${fileName}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -146,7 +144,7 @@ const DocumentsPage = () => {
     setLoadingDownload(fileName);
     const token = localStorage.getItem('token');
     try {
-      const response = await fetch(`${proxyUrl}https://nodejs-serverless-function-express-three-liart.vercel.app/api/download-file?file=${fileName}`, {
+      const response = await fetch(`https://nodejs-serverless-function-express-three-liart.vercel.app/api/download-file?file=${fileName}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
