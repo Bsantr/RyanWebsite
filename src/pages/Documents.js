@@ -47,6 +47,7 @@ const DocumentsPage = () => {
   }, [navigate]);
 
   const handlePreview = async (fileName) => {
+    console.log(fileName)
     setLoadingPreview(fileName); // Start loading for preview
     const token = localStorage.getItem('token');
     try {
