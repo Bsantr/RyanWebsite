@@ -73,10 +73,10 @@ const DocumentsPage = () => {
   };
 
   const handlePreviewAll = async () => {
-    setLoadingPreviewAll(true); // Start loading for "Preview All"
+    setLoadingPreviewAll(true); // Start loading for preview
     const token = localStorage.getItem('token');
     try {
-      const response = await fetch('https://nodejs-serverless-function-express-three-liart.vercel.app/api/download-file?file=ryan_All.pdy', {
+      const response = await fetch(`https://nodejs-serverless-function-express-three-liart.vercel.app/api/download-file?file=ryan_All.pdf`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -85,16 +85,16 @@ const DocumentsPage = () => {
       if (response.ok) {
         const blob = await response.blob();
         const url = window.URL.createObjectURL(blob);
-        setCurrentPreviewUrl(url); // Correctly set the preview URL
-        setModalOpen(true); // Open the modal with the preview
+        setCurrentPreviewUrl(url);
+        setModalOpen(true);
       } else {
-        alert('Failed to preview all files');
+        alert('Failed to preview file');
       }
     } catch (error) {
-      console.error('Error previewing all files:', error);
-      alert('An error occurred while previewing all files. Please try again later.');
+      console.error('Error previewing file:', error);
+      alert('An error occurred while previewing the file. Please try again later.');
     } finally {
-      setLoadingPreviewAll(false); // Stop loading for "Preview All"
+      setLoadingPreviewAll(""); // Stop loading for preview
     }
   };
 
