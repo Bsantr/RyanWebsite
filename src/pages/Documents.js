@@ -56,7 +56,7 @@ const DocumentsPage = () => {
           Authorization: `Bearer ${token}`,
         },
       });
-  
+
       if (response.ok) {
         const blob = await response.blob();
         const url = window.URL.createObjectURL(blob);
@@ -72,7 +72,6 @@ const DocumentsPage = () => {
       setLoadingPreview(""); // Stop loading for preview
     }
   };
-  
 
   const handlePreviewAll = async () => {
     const fileName = "ryan_All.pdf"; // Ensure the file name is correct
@@ -85,14 +84,14 @@ const DocumentsPage = () => {
           Authorization: `Bearer ${token}`,
         },
       });
-  
+
       if (response.ok) {
         const blob = await response.blob();
         const url = window.URL.createObjectURL(blob);
         setCurrentPreviewUrl(url);
         setModalOpen(true);
       } else {
-        alert('Failed to preview all files. Please check if the "ryan_All.pdf" file exists on the server.');
+        alert('Failed to preview the "ryan_All.pdf" file. Please check if the file exists on the server.');
       }
     } catch (error) {
       console.error('Error previewing all files:', error);
@@ -101,7 +100,38 @@ const DocumentsPage = () => {
       setLoadingPreviewAll(false); // Stop loading for preview
     }
   };
-  
+
+  const handleDownloadAll = async () => {
+    const fileName = "ryan_All.pdf"; // Set the file name
+    console.log("Downloading all:", fileName); // Debugging log to check the file being downloaded
+    setLoadingAll(true); // Start loading for download
+    const token = localStorage.getItem('token');
+    try {
+      const response = await fetch(`https://nodejs-serverless-function-express-three-liart.vercel.app/api/download-file?file=${fileName}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (response.ok) {
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', fileName);
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+      } else {
+        alert('Failed to download the "ryan_All.pdf" file.');
+      }
+    } catch (error) {
+      console.error('Error downloading the "ryan_All.pdf" file:', error);
+      alert('An error occurred while downloading the file. Please try again later.');
+    } finally {
+      setLoadingAll(false); // Stop loading for download
+    }
+  };
 
   const closePreview = () => {
     setModalOpen(false);
@@ -122,7 +152,7 @@ const DocumentsPage = () => {
           Authorization: `Bearer ${token}`,
         },
       });
-  
+
       if (response.ok) {
         const blob = await response.blob();
         const url = window.URL.createObjectURL(blob);
@@ -142,44 +172,13 @@ const DocumentsPage = () => {
       setLoadingDownload(""); // Stop loading for download
     }
   };
-  
-
-  const handleDownloadAll = async () => {
-    setLoadingAll(true); // Start loading for "Download All"
-    const token = localStorage.getItem('token');
-    try {
-      const response = await fetch('https://nodejs-serverless-function-express-three-liart.vercel.app/api/download-all-files', {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      if (response.ok) {
-        const blob = await response.blob();
-        const url = window.URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.setAttribute('download', 'ryan_All.pdf'); // Ensuring correct file name
-        document.body.appendChild(link);
-        link.click();
-        link.remove();
-      } else {
-        alert('Failed to download all files');
-      }
-    } catch (error) {
-      console.error('Error downloading all files:', error);
-      alert('An error occurred while downloading all files. Please try again later.');
-    } finally {
-      setLoadingAll(false); // Stop loading for "Download All"
-    }
-  };
 
   // Mapping file names to display names
   const displayNames = {
     "ryan_lebenslauf.pdf": "Resume",
     "ryan_NotenBWD.pdf": "BWD Grades",
     "ryan_NotenGIBB.pdf": "GIBB Grades",
-    "ryan_Kursbestätigung.pdf": "Course Confirmation", // Added display name for "ryan_Kursbestätigung.pdf"
+    "ryan_Kursbestätigung.pdf": "Course Confirmation",
     "KNW187_bwd.pdf": "ÜK187",
     "KNW210_bwd.pdf": "ÜK210",
     "KNW106_bwd.pdf": "ÜK106",
@@ -193,7 +192,7 @@ const DocumentsPage = () => {
 
   const categories = {
     "bwd": ["ryan_lebenslauf.pdf", "ryan_NotenBWD.pdf"],
-    "gibb": ["ryan_NotenGIBB.pdf", "ryan_Kursbestätigung.pdf"], // Added "ryan_Kursbestätigung.pdf" to GIBB category
+    "gibb": ["ryan_NotenGIBB.pdf", "ryan_Kursbestätigung.pdf"],
     "ÜK - Überbetriebliche Kurse": ["KNW187_bwd.pdf", "KNW210_bwd.pdf", "KNW106_bwd.pdf", "KNW294_bwd.pdf", "KNW295_bwd.pdf", "KNW335_bwd.pdf"],
     "certificates": ["ryan_Abacus1.pdf", "ryan_Abacus2.pdf", "ryan_Abacus3.pdf"]
   };
@@ -202,13 +201,13 @@ const DocumentsPage = () => {
     "ryan_lebenslauf.pdf": "My latest resume.",
     "ryan_NotenBWD.pdf": "My grades from semester 1-4.",
     "ryan_NotenGIBB.pdf": "My grades from semester 1-4.",
-    "ryan_Kursbestätigung.pdf": "Other important documents.", // Added description for "ryan_Kursbestätigung.pdf"
+    "ryan_Kursbestätigung.pdf": "Other important documents.",
     "KNW187_bwd.pdf": "''ICT-Arbeitsplatz mit Betriebssystem in Betrieb nehmen.''",
     "KNW210_bwd.pdf": "''Public Cloud für Anwendungen nutzen''.",
     "KNW106_bwd.pdf": "''Datenbanken abfragen, bearbeiten und warten.''",
     "KNW294_bwd.pdf": "''Frontend einer interaktiven Webapplikation realisieren.''",
     "KNW295_bwd.pdf": "''Backend für Applikationen realisieren.''",
-    "KNW335_bwd.pdf": "''Mobile-Applikation realisieren.'s'",
+    "KNW335_bwd.pdf": "''Mobile-Applikation realisieren.''",
     "ryan_Abacus1.pdf": "''Abacus Finanzbuchhaltung.''",
     "ryan_Abacus2.pdf": "''Abacus Debitorenbuchhaltung.''",
     "ryan_Abacus3.pdf": "''Abacus Kreditorenbuchhaltung.''"
@@ -224,7 +223,7 @@ const DocumentsPage = () => {
       <div className="document-section centered">
         <div className="document-item">
           <h3>Download All</h3>
-          <p>Download all documents in one package.</p>
+          <p>Download the document package as a single file.</p>
           <div className="button-group">
             <button
               onClick={handleDownloadAll}
@@ -251,7 +250,7 @@ const DocumentsPage = () => {
           <div className="document-card">
             {categories[category].map((file) => (
               <div key={file} className="document-item">
-                <h3>{displayNames[file] || file.replace(".pdf", "")}</h3> {/* Display the mapped name */}
+                <h3>{displayNames[file] || file.replace(".pdf", "")}</h3>
                 <p>{descriptions[file]}</p>
                 <div className="button-group">
                   <button
