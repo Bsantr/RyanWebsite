@@ -76,7 +76,7 @@ const DocumentsPage = () => {
     setLoadingPreviewAll(true); // Start loading for "Preview All"
     const token = localStorage.getItem('token');
     try {
-      const response = await fetch('https://nodejs-serverless-function-express-three-liart.vercel.app/api/preview-all-files', {
+      const response = await fetch('https://nodejs-serverless-function-express-three-liart.vercel.app/api/download-file?file=ryan_All.pdy', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
