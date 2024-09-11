@@ -47,7 +47,7 @@ const DocumentsPage = () => {
   }, [navigate]);
 
   const handlePreview = async (fileName) => {
-    console.log(fileName)
+    console.log("Previewing:", fileName); // Debugging log to check the file being previewed
     setLoadingPreview(fileName); // Start loading for preview
     const token = localStorage.getItem('token');
     try {
@@ -56,25 +56,27 @@ const DocumentsPage = () => {
           Authorization: `Bearer ${token}`,
         },
       });
-
+  
       if (response.ok) {
         const blob = await response.blob();
         const url = window.URL.createObjectURL(blob);
         setCurrentPreviewUrl(url);
         setModalOpen(true);
       } else {
-        alert('Failed to preview file');
+        alert(`Failed to preview ${fileName}. Please check if the file exists on the server.`);
       }
     } catch (error) {
-      console.error('Error previewing file:', error);
+      console.error(`Error previewing ${fileName}:`, error);
       alert('An error occurred while previewing the file. Please try again later.');
     } finally {
       setLoadingPreview(""); // Stop loading for preview
     }
   };
+  
 
   const handlePreviewAll = async () => {
-    const fileName = "ryan_All.pdf"
+    const fileName = "ryan_All.pdf"; // Ensure the file name is correct
+    console.log("Previewing all:", fileName); // Debugging log to check if the correct file is being requested
     setLoadingPreviewAll(true); // Start loading for preview
     const token = localStorage.getItem('token');
     try {
@@ -83,22 +85,23 @@ const DocumentsPage = () => {
           Authorization: `Bearer ${token}`,
         },
       });
-
+  
       if (response.ok) {
         const blob = await response.blob();
         const url = window.URL.createObjectURL(blob);
         setCurrentPreviewUrl(url);
         setModalOpen(true);
       } else {
-        alert('Failed to preview file');
+        alert('Failed to preview all files. Please check if the "ryan_All.pdf" file exists on the server.');
       }
     } catch (error) {
-      console.error('Error previewing file:', error);
+      console.error('Error previewing all files:', error);
       alert('An error occurred while previewing the file. Please try again later.');
     } finally {
-      setLoadingPreviewAll(""); // Stop loading for preview
+      setLoadingPreviewAll(false); // Stop loading for preview
     }
   };
+  
 
   const closePreview = () => {
     setModalOpen(false);
@@ -110,6 +113,7 @@ const DocumentsPage = () => {
   };
 
   const handleDownload = async (fileName) => {
+    console.log("Downloading:", fileName); // Debugging log to check the file being downloaded
     setLoadingDownload(fileName); // Start loading for download
     const token = localStorage.getItem('token');
     try {
@@ -118,7 +122,7 @@ const DocumentsPage = () => {
           Authorization: `Bearer ${token}`,
         },
       });
-
+  
       if (response.ok) {
         const blob = await response.blob();
         const url = window.URL.createObjectURL(blob);
@@ -129,15 +133,16 @@ const DocumentsPage = () => {
         link.click();
         link.remove();
       } else {
-        alert('Failed to download file');
+        alert(`Failed to download ${fileName}. Please check if the file exists on the server.`);
       }
     } catch (error) {
-      console.error('Error downloading file:', error);
+      console.error(`Error downloading ${fileName}:`, error);
       alert('An error occurred while downloading the file. Please try again later.');
     } finally {
       setLoadingDownload(""); // Stop loading for download
     }
   };
+  
 
   const handleDownloadAll = async () => {
     setLoadingAll(true); // Start loading for "Download All"
