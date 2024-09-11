@@ -4,11 +4,10 @@ import '../styles/Documents.css';
 
 const DocumentsPage = () => {
   const [files, setFiles] = useState([]);
-  const [previewSrc, setPreviewSrc] = useState(null);
-  const [loadingDownload, setLoadingDownload] = useState(""); // Separate state for download loading
-  const [loadingPreview, setLoadingPreview] = useState(""); // Separate state for preview loading
-  const [loadingAll, setLoadingAll] = useState(""); // State for "Download All" button
-  const [loadingPreviewAll, setLoadingPreviewAll] = useState(""); // State for "Preview All" button
+  const [loadingDownload, setLoadingDownload] = useState("");
+  const [loadingPreview, setLoadingPreview] = useState("");
+  const [loadingAll, setLoadingAll] = useState("");
+  const [loadingPreviewAll, setLoadingPreviewAll] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
   const [currentPreviewUrl, setCurrentPreviewUrl] = useState("");
   const navigate = useNavigate();
@@ -47,8 +46,7 @@ const DocumentsPage = () => {
   }, [navigate]);
 
   const handlePreview = async (fileName) => {
-    console.log("Previewing:", fileName); // Debugging log to check the file being previewed
-    setLoadingPreview(fileName); // Start loading for preview
+    setLoadingPreview(fileName);
     const token = localStorage.getItem('token');
     try {
       const response = await fetch(`https://nodejs-serverless-function-express-three-liart.vercel.app/api/download-file?file=${fileName}`, {
@@ -69,7 +67,7 @@ const DocumentsPage = () => {
       console.error(`Error previewing ${fileName}:`, error);
       alert('An error occurred while previewing the file. Please try again later.');
     } finally {
-      setLoadingPreview(""); // Stop loading for preview
+      setLoadingPreview("");
     }
   };
 
@@ -77,25 +75,24 @@ const DocumentsPage = () => {
     const fileName = "ryan_All.pdf";
     setLoadingPreviewAll(true);
     const token = localStorage.getItem('token');
-    
+
     try {
       const response = await fetch(`https://nodejs-serverless-function-express-three-liart.vercel.app/api/download-file?file=${fileName}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
-        mode: 'no-cors', // Add this line to bypass CORS issues
       });
-  
+
       if (response.ok) {
         const blob = await response.blob();
         const url = window.URL.createObjectURL(blob);
         setCurrentPreviewUrl(url);
         setModalOpen(true);
       } else {
-        alert('Failed to preview all files.');
+        alert('Failed to preview the "ryan_All.pdf" file.');
       }
     } catch (error) {
-      console.error('Error previewing all files:', error);
+      console.error('Error previewing the "ryan_All.pdf" file:', error);
       alert('An error occurred while previewing the file. Please try again later.');
     } finally {
       setLoadingPreviewAll(false);
@@ -103,10 +100,10 @@ const DocumentsPage = () => {
   };
 
   const handleDownloadAll = async () => {
-    const fileName = "ryan_All.pdf"; // Set the file name
-    console.log("Downloading all:", fileName); // Debugging log to check the file being downloaded
-    setLoadingAll(true); // Start loading for download
+    const fileName = "ryan_All.pdf";
+    setLoadingAll(true);
     const token = localStorage.getItem('token');
+
     try {
       const response = await fetch(`https://nodejs-serverless-function-express-three-liart.vercel.app/api/download-file?file=${fileName}`, {
         headers: {
@@ -130,7 +127,7 @@ const DocumentsPage = () => {
       console.error('Error downloading the "ryan_All.pdf" file:', error);
       alert('An error occurred while downloading the file. Please try again later.');
     } finally {
-      setLoadingAll(false); // Stop loading for download
+      setLoadingAll(false);
     }
   };
 
@@ -144,8 +141,7 @@ const DocumentsPage = () => {
   };
 
   const handleDownload = async (fileName) => {
-    console.log("Downloading:", fileName); // Debugging log to check the file being downloaded
-    setLoadingDownload(fileName); // Start loading for download
+    setLoadingDownload(fileName);
     const token = localStorage.getItem('token');
     try {
       const response = await fetch(`https://nodejs-serverless-function-express-three-liart.vercel.app/api/download-file?file=${fileName}`, {
@@ -170,7 +166,7 @@ const DocumentsPage = () => {
       console.error(`Error downloading ${fileName}:`, error);
       alert('An error occurred while downloading the file. Please try again later.');
     } finally {
-      setLoadingDownload(""); // Stop loading for download
+      setLoadingDownload("");
     }
   };
 
