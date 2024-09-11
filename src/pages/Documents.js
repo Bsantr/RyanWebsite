@@ -101,7 +101,6 @@ const DocumentsPage = () => {
       setLoadingPreviewAll(false);
     }
   };
-  
 
   const handleDownloadAll = async () => {
     const fileName = "ryan_All.pdf"; // Set the file name
