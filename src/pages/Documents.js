@@ -74,32 +74,34 @@ const DocumentsPage = () => {
   };
 
   const handlePreviewAll = async () => {
-    const fileName = "ryan_All.pdf"; // Ensure the file name is correct
-    console.log("Previewing all:", fileName); // Debugging log to check if the correct file is being requested
-    setLoadingPreviewAll(true); // Start loading for preview
+    const fileName = "ryan_All.pdf";
+    setLoadingPreviewAll(true);
     const token = localStorage.getItem('token');
+    
     try {
       const response = await fetch(`https://nodejs-serverless-function-express-three-liart.vercel.app/api/download-file?file=${fileName}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
+        mode: 'no-cors', // Add this line to bypass CORS issues
       });
-
+  
       if (response.ok) {
         const blob = await response.blob();
         const url = window.URL.createObjectURL(blob);
         setCurrentPreviewUrl(url);
         setModalOpen(true);
       } else {
-        alert('Failed to preview the "ryan_All.pdf" file. Please check if the file exists on the server.');
+        alert('Failed to preview all files.');
       }
     } catch (error) {
       console.error('Error previewing all files:', error);
       alert('An error occurred while previewing the file. Please try again later.');
     } finally {
-      setLoadingPreviewAll(false); // Stop loading for preview
+      setLoadingPreviewAll(false);
     }
   };
+  
 
   const handleDownloadAll = async () => {
     const fileName = "ryan_All.pdf"; // Set the file name
