@@ -74,10 +74,11 @@ const DocumentsPage = () => {
   };
 
   const handlePreviewAll = async () => {
+    const fileName = "ryan_All.pdf"
     setLoadingPreviewAll(true); // Start loading for preview
     const token = localStorage.getItem('token');
     try {
-      const response = await fetch(`https://nodejs-serverless-function-express-three-liart.vercel.app/api/download-file?file=ryan_All.pdf`, {
+      const response = await fetch(`https://nodejs-serverless-function-express-three-liart.vercel.app/api/download-file?file=${fileName}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
